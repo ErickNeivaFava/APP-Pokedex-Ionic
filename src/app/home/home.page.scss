@@ -9,15 +9,15 @@
 }
 
 #container strong {
-  font-size: 20px;
-  line-height: 26px;
+  font-size: 30px;
+  line-height: 30px;
 }
 
 #container p {
-  font-size: 16px;
+  font-size: 20px;
   line-height: 22px;
 
-  color: #8c8c8c;
+  color: #9e2c2c;
 
   margin: 0;
 }
@@ -25,3 +25,32 @@
 #container a {
   text-decoration: none;
 }
+#centralizar{
+
+  text-align:center;
+}
+vermelho{
+    color: red;
+
+}
+
+.azul{
+    color: blue;
+}
+
+.white{
+  color: goldenrod;
+}
+
+ion-content{
+
+  --ion-background-color:#f7f7f7;
+}
+
+body {
+  background-image: url(../Pokemon.jpg);
+  background-repeat: no-repeat;
+  background-size:cover;
+  background-position: center center;
+  
+ }
