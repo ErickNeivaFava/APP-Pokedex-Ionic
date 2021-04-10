@@ -7,30 +7,50 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+  public Pokedex = require('pokedex-promise-v2');
+
+  public options = {
+    protocol: 'https',
+    hostName: 'pokeapi.co',
+    versionPath: '/api/v2/',
+    cacheLimit: 100 * 1000, // 100s
+    timeout: 5 * 1000 // 5s
+  }
+  
+  public P = new this.Pokedex(this.options);
+
   public entrar(){
 
   }
   
   constructor() {
+    
+  }
 
-    var Pokedex = require('pokedex-promise-v2');
+  public getPoke(id){
+    
+    //var P = new this.Pokedex(this.options);
 
-    var options = {
-      protocol: 'https',
-      hostName: 'pokeapi.co',
-      versionPath: '/api/v2/',
-      cacheLimit: 100 * 1000, // 100s
-      timeout: 5 * 1000 // 5s
-    }
-  
-    var P = new Pokedex(options);
-
-    P.getPokemonByName('eevee') // with Promise
+    this.P.getPokemonByName(id) // with Promise
     .then(function(response) {
       console.log(response);
+      console.log(response.id);
+      console.log(response.species.name);
+      console.log(response.sprites.front_default);
+
+      return response;
     })
     .catch(function(error) {
       console.log('There was an ERROR: ', error);
     });
+    
+    this.P.getPokemonsList()
+    .then(function(response) {
+      console.log(response);
+      response.results;
+
+    })
+
   }
+
 }
