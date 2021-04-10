@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 
-
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
+  public entrar(){
+
+  }
   
   constructor() {
 
@@ -29,9 +32,5 @@ export class HomePage {
     .catch(function(error) {
       console.log('There was an ERROR: ', error);
     });
-
   }
-
-
-
 }

@@ -1,9 +1,41 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Tabs</ion-title>
+    <ion-title>Olá mundo </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <ion-card>
+    <ion-card-header>
+      <ion-avatar>
+        <img src="https://cdn.bulbagarden.net/upload/thumb/7/7e/006Charizard.png/600px-006Charizard.png"
+          alt="charizard">
+      </ion-avatar>
+      <ion-card-title>Charizard</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Charizard é um pokémon de fogo
+    </ion-card-content>    
+  </ion-card>
+
+  <ion-tabs>
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button tab="profile">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <ion-label>Profile</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="dashboard">
+        <ion-icon name="easel-outline"></ion-icon>
+        <ion-label>Dashboard</ion-label>
+      </ion-tab-button>
+
+      <ion-tab-button tab="settings">
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Settings</ion-label>
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>  
 
 </ion-content>

@@ -1,47 +1,52 @@
 <ion-header [translucent]="true">
   <ion-toolbar color="danger">
     <ion-title class="title">
-      <ion-buttons slot="start">
-        <img src="/Pokeball.jpg" width="100">
-      </ion-buttons>
-
       Listagens de Pokedex
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+<ion-content class="ion-padding">
 
-<ion-content class="ion-padding"style="black">
+  <ion-item color="transparent" lines="none">
+    <ion-col>
+      <h1 style="color:rgb(255, 255, 255);display:block">Login
+      </h1>
+    </ion-col>
+    <ion-col>
+      <ion-col>
+      </ion-col>
+    </ion-col>
 
-  <ion-item color="transparent"lines="none">
-<ion-col>
-    <h1 style="color:rgb(255, 255, 255);display:block">Login
-    </h1>
-  </ion-col>
-<ion-col>
-  <ion-col>
-  </ion-col>
-</ion-col>
+  </ion-item>
+  <ion-item color="primary">
+    <ion-label position="floating" style="color: rgb(255, 255, 255);">Usuario</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
 
-</ion-item>
- <ion-item color="dark" lines="white">
+  <ion-item color="primary">
+    <ion-label position="floating" style="color:  rgb(255, 255, 255);">Senha</ion-label>
+    <ion-input type="text"></ion-input>
+  </ion-item>
 
-   <ion-label position="floating" style="color: rgb(255, 255, 255);">Usuario</ion-label>
+  <ion-button color="danger" (click)="entrar()" expand="block" class="ion-margin-top">
+    Entrar
+  </ion-button>
 
-   <ion-input type="text"></ion-input>
+  <ion-row class="ion-align-items-center">
+    <ion-col size="auto">
+      <ion-checkbox></ion-checkbox>
+    </ion-col>
+    <ion-col class="forgot" size="">
+      <p>Remember me</p>
+    </ion-col>
+    <ion-col class="forgot ml-auto" size="auto">
+      <p>Forgot your password?</p>
+    </ion-col>
+  </ion-row>
 
+  <div class="version">
+    <p>Versão 0.1</p>
+  </div>
 
- </ion-item>
-
- <ion-item color="dark" lines="white">
-
-  <ion-label position="floating"style="color:  rgb(255, 255, 255);">Senha</ion-label> 
-  <ion-input type="text"></ion-input>
-
-</ion-item>
-<ion-button color="danger"(click)="Entrar()" expand="block" class="ion-margin-top">
-  Entrar
- </ion-button>
-
- <a>Esqueci minha senha"</a>
-<ion-content>
+  <ion-content>
