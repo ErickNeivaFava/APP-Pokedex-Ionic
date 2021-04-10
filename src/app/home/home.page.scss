@@ -1,38 +1,8 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-#container strong {
-  font-size: 30px;
-  line-height: 30px;
-}
-
-#container p {
-  font-size: 20px;
-  line-height: 22px;
-
-  color: #9e2c2c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
-}
 #centralizar{
 
   text-align:center;
 }
-vermelho{
-    color: red;
 
-}
 
 .azul{
     color: blue;
@@ -42,15 +12,63 @@ vermelho{
   color: goldenrod;
 }
 
+
 ion-content{
-
-  --ion-background-color:#f7f7f7;
-}
-
-body {
-  background-image: url(../Pokemon.jpg);
-  background-repeat: no-repeat;
-  background-size:cover;
-  background-position: center center;
-  
+  --background: url(https://i.pinimg.com/originals/65/bb/6b/65bb6b19742569e7e148c8637090bdf8.jpg)no-repeat center center fixed;
+  --background-size: cover; /*Css padrão*/
+  --webkit-background-size: cover; /*Css safari e chrome*/
+  --moz-background-size: cover; /*Css firefox*/
+  --ms-background-size: cover; /*Css IE não use mer#^@%#*/
+ --o-background-size: cover; /*Css Opera*/
  }
+
+ ion-toolbar ion-title{
+    color:black;
+    
+
+ }
+
+    h1{
+      font-family: 'Arial';
+      font-size: 25px;
+      display:block;
+
+    }
+    ul{
+      font-family:'Arial';
+      font-size: 13px;
+      display:block;
+    }
+
+
+    .transparent{
+      --background: none;
+  opacity:1;
+    }
+
+  a{
+    color:rgb(250, 250, 250);
+  }
+
+  .lines{
+    color:white;
+  }
+
+  ion-button{
+    font-weight: bold;
+  }
+
+  ion-label{
+    font-weight: bold;
+  }
+
+  ion-title{
+    font-weight: bold;
+
+  }
+
+  .title{
+    color:white;
+    text-align: center;
+    font-style:italic;
+  }
