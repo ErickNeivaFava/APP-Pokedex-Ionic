@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { TelaInicialPageRoutingModule } from './tela-inicial-routing.module';
+import { PokemonsPageRoutingModule } from './pokemons-routing.module';
 
-import { TelaInicialPage } from './tela-inicial.page';
+import { PokemonsPage } from './pokemons.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TelaInicialPageRoutingModule
+    PokemonsPageRoutingModule
   ],
-  declarations: [TelaInicialPage]
+  declarations: [PokemonsPage]
 })
-export class TelaInicialPageModule {}
+export class PokemonsPageModule {}

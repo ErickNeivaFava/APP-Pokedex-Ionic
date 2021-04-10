@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { TelaInicialPage } from './tela-inicial.page';
+import { ItemsPage } from './items.page';
 
-describe('TelaInicialPage', () => {
-  let component: TelaInicialPage;
-  let fixture: ComponentFixture<TelaInicialPage>;
+describe('ItemsPage', () => {
+  let component: ItemsPage;
+  let fixture: ComponentFixture<ItemsPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ TelaInicialPage ],
+      declarations: [ ItemsPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(TelaInicialPage);
+    fixture = TestBed.createComponent(ItemsPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
