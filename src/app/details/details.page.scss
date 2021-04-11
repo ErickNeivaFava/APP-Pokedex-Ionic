@@ -2,19 +2,6 @@ ion-card-title {
     text-align: center;
 }
 
-ul {
-    list-style: none;
-}
-
-.avatar {
-    margin: auto;
-    margin-top: 2rem;
-}
-
-h3 {
-    margin-top: 2rem;
-}
-
 ion-card-content {
     text-align: justify;
 }
@@ -26,8 +13,16 @@ ion-title {
     font-weight: bold;
 }
 
-h5 {
+h6 {
     margin-top: 10px;
     font-style: italic;
     font-weight: bold;
+}
+
+.item-avatar {
+   
+    width: 50% !important;
+    height: 100% !important;
+    max-width: 90px !important;
+    max-height: 100px !important;
 }

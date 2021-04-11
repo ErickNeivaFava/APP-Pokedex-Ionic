@@ -6,21 +6,22 @@ import { TabsPage } from './tabs.page';
 const routes: Routes = [
   {
     path: '',
-    component: TabsPage
+    component: TabsPage,
+    children: [
+      {
+        path: 'pokemons',
+        loadChildren: () => import('./pokemons/pokemons.module').then(m => m.PokemonsPageModule)
+      },
+      {
+        path: 'moves',
+        loadChildren: () => import('./moves/moves.module').then(m => m.MovesPageModule)
+      },
+      {
+        path: 'items',
+        loadChildren: () => import('./items/items.module').then(m => m.ItemsPageModule)
+      }
+    ]
   },
-  {
-    path: 'pokemons',
-    loadChildren: () => import('./pokemons/pokemons.module').then(m => m.PokemonsPageModule)
-  },
-  {
-    path: 'moves',
-    loadChildren: () => import('./moves/moves.module').then(m => m.MovesPageModule)
-  },
-  {
-    path: 'items',
-    loadChildren: () => import('./items/items.module').then(m => m.ItemsPageModule)
-  }
-
 ];
 
 @NgModule({
