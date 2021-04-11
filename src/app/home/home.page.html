@@ -1,52 +1,50 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar color="danger">
-    <ion-title class="title">
-      Listagens de Pokedex
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>
+      Pokédex
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content scrollY="false" class="ion-padding">
+  <h1>
+    Welcome!
+  </h1>
 
-  <ion-item color="transparent" lines="none">
-    <ion-col>
-      <h1 style="color:rgb(255, 255, 255);display:block">Login
-      </h1>
-    </ion-col>
-    <ion-col>
-      <ion-col>
-      </ion-col>
-    </ion-col>
-
-  </ion-item>
   <ion-item color="primary">
-    <ion-label position="floating" style="color: rgb(255, 255, 255);">Usuario</ion-label>
+    <ion-label position="floating">
+      Username
+    </ion-label>
     <ion-input type="text"></ion-input>
   </ion-item>
 
   <ion-item color="primary">
-    <ion-label position="floating" style="color:  rgb(255, 255, 255);">Senha</ion-label>
+    <ion-label position="floating">
+      Password
+    </ion-label>
     <ion-input type="text"></ion-input>
   </ion-item>
 
   <ion-button color="danger" (click)="entrar()" expand="block" class="ion-margin-top">
-    Entrar
+    Login
   </ion-button>
 
   <ion-row class="ion-align-items-center">
     <ion-col size="auto">
       <ion-checkbox></ion-checkbox>
     </ion-col>
-    <ion-col class="forgot" size="">
+    <ion-col>
       <p>Remember me</p>
     </ion-col>
-    <ion-col class="forgot ml-auto" size="auto">
-      <p>Forgot your password?</p>
+    <ion-col size="auto">
+      <a href="#">Forgot your password?</a>
     </ion-col>
   </ion-row>
 
-  <div class="version">
-    <p>Versão 0.1</p>
-  </div>
-
+  <p class="ac">v0.1</p>
   <ion-content>

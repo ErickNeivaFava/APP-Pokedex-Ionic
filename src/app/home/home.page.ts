@@ -16,41 +16,38 @@ export class HomePage {
     cacheLimit: 100 * 1000, // 100s
     timeout: 5 * 1000 // 5s
   }
-  
+
   public P = new this.Pokedex(this.options);
 
-  public entrar(){
-
+  public entrar() {
   }
-  
+
   constructor() {
-    
+
   }
 
-  public getPoke(id){
-    
+  public getPoke(id) {
+
     //var P = new this.Pokedex(this.options);
 
     this.P.getPokemonByName(id) // with Promise
-    .then(function(response) {
-      console.log(response);
-      console.log(response.id);
-      console.log(response.species.name);
-      console.log(response.sprites.front_default);
+      .then(function (response) {
+        console.log(response);
+        console.log(response.id);
+        console.log(response.species.name);
+        console.log(response.sprites.front_default);
 
-      return response;
-    })
-    .catch(function(error) {
-      console.log('There was an ERROR: ', error);
-    });
-    
+        return response;
+      })
+      .catch(function (error) {
+        console.log('There was an ERROR: ', error);
+      });
+
     this.P.getPokemonsList()
-    .then(function(response) {
-      console.log(response);
-      response.results;
+      .then(function (response) {
+        console.log(response);
+        response.results;
 
-    })
-
+      })
   }
-
 }
