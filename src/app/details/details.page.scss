@@ -1,28 +1,33 @@
-h1 {
-    font-weight: bold;
-    font-family: "Arial";
-    font-size: 25px;
-    display: block;
-    color:white;
+ion-card-title {
     text-align: center;
-  }
+}
 
-ul{
+ul {
     list-style: none;
 }
- .avatar{
-     margin:auto;
-     margin-top: 2rem;
- } 
 
- .ml{
-     margin-left: auto;
- }
-
- .mr{
-    margin-right: auto;
+.avatar {
+    margin: auto;
+    margin-top: 2rem;
 }
 
-h3{
+h3 {
     margin-top: 2rem;
+}
+
+ion-card-content {
+    text-align: justify;
+}
+
+ion-title {
+    text-shadow: 2px 2px #000000;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+}
+
+h5 {
+    margin-top: 10px;
+    font-style: italic;
+    font-weight: bold;
 }

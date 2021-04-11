@@ -13,12 +13,12 @@ const routes: Routes = [
     loadChildren: () => import('./pokemons/pokemons.module').then(m => m.PokemonsPageModule)
   },
   {
-    path: 'abilities',
-    loadChildren: () => import('./abilities/abilities.module').then(m => m.AbilitiesPageModule)
-  },
-  {
     path: 'moves',
     loadChildren: () => import('./moves/moves.module').then(m => m.MovesPageModule)
+  },
+  {
+    path: 'items',
+    loadChildren: () => import('./items/items.module').then(m => m.ItemsPageModule)
   }
 
 ];
