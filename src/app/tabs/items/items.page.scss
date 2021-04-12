@@ -29,22 +29,70 @@ h2{
     text-align:center;
     font-weight: bold;
     font-family:'Arial';
-    color:rgb(38, 181, 38);
+    color:rgb(26, 134, 26);
 }
 
 ion-card img{
     height:100px;
     width:100px;
+  text-align: center center;
+
+    
 }
 
 h3{
     text-align:center;
     font-weight: bold;
     font-family:'Arial';
-    color:rgb(196, 172, 38);
+    color:rgb(197, 171, 22);
 }
 
 ion-card-content{
     font-weight: bold;
-    color:rgb(255, 255, 255);
+    
+}
+
+h4{
+    text-align:center;
+    font-size:22px;
+    font-weight: bold;
+    font-family:'Arial';
+    color:rgb(175, 40, 130);
+}
+
+.poison{
+    color:rgb(175, 40, 130);
+
+}
+
+h5{
+    h4{
+        text-align:center;
+        font-size:22px;
+        font-weight: bold;
+        font-family:'Arial';
+        color:rgb(64, 34, 148);
+    }
+}
+
+.blue{
+    text-align:center;
+        font-size:22px;
+        font-weight: bold;
+        font-family:'Arial';
+    color:blue;
+}
+
+.red{
+    color:brown;
+    text-align:center;
+    font-size:22px;
+    font-weight: bold;
+    font-family:'Arial';
+}
+
+ion-badge{
+    color:white;
+    background:brown;
+
 }

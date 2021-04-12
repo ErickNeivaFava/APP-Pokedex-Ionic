@@ -8,7 +8,7 @@
 </ion-header>
 
 <ion-content color="light" class="ion-padding">
-  <ion-searchbar color="dark" style placeholder="Filter Pizza"></ion-searchbar>
+  <ion-searchbar color="dark" style placeholder="Filter Items"></ion-searchbar>
   <h2>Consumables</h2>
   <ion-col>
 
@@ -16,7 +16,7 @@
       <ion-card-header>
         <img src="https://cdn.bulbagarden.net/upload/thumb/2/2e/GO_Potion.png/200px-GO_Potion.png">
         <ion-card-title><strong>Small Potion</strong></ion-card-title>
-        <ion-card-subtitle><strong>Class:<ion-card color="success"> Potions</ion-card></strong></ion-card-subtitle>
+        <ion-card-subtitle><strong>Class:  <ion-badge style="background:rgb(98, 177, 19)"> Potions</ion-badge></strong></ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <strong>Recupera 20 HP</strong>
@@ -27,7 +27,7 @@
       <ion-card-header>
         <img src="https://img.rankedboost.com/wp-content/uploads/2016/08/Super-Potion-Pokemon-Go.png">
         <ion-card-title><strong>Medium Potion</strong></ion-card-title>
-        <ion-card-subtitle><strong>Class:<ion-card color="success"> Potions</ion-card></strong></ion-card-subtitle>
+        <ion-card-subtitle><strong>Class:  <ion-badge style="background:rgb(98, 177, 19)"> Potions</ion-badge></strong></ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <strong>Recupera 50 HP</strong>
@@ -36,10 +36,9 @@
 
     <ion-card>
       <ion-card-header>
-        <img
-          src="https://static.wikia.nocookie.net/pokemongo_gamepedia_en/images/2/23/Hyper_Potion.png/revision/latest/scale-to-width-down/128?cb=20160714140811">
+        <img src="https://th.bing.com/th/id/OIP.6rMNdqFDoL_6HMT3B_nn1AAAAA?pid=ImgDet&w=256&h=256&rs=1">
         <ion-card-title><strong>Big Potion</strong></ion-card-title>
-        <ion-card-subtitle><strong>Class:<ion-card color="success"> Potions</ion-card></strong></ion-card-subtitle>
+        <ion-card-subtitle><strong>Class:  <ion-badge style="background:rgb(98, 177, 19)"> Potions</ion-badge></strong></ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <strong>Recupera 200 HP</strong>
@@ -48,10 +47,9 @@
 
     <ion-card>
       <ion-card-header>
-        <img
-          src="https://static.wikia.nocookie.net/pokemongo/images/0/03/Max_Potion.png/revision/latest?cb=20160725004021">
+        <img src="https://th.bing.com/th/id/OIP.efWwfT1sxtc7cRkUciSrgAAAAA?pid=ImgDet&rs=1">
         <ion-card-title><strong>Biggest Potion</strong></ion-card-title>
-        <ion-card-subtitle><strong>Class:<ion-card color="success"> Potions</ion-card></strong></ion-card-subtitle>
+        <ion-card-subtitle><strong>Class:  <ion-badge style="background:rgb(98, 177, 19)"> Potions</ion-badge></strong></ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <strong>Recupera HP máximo</strong>
@@ -59,49 +57,50 @@
     </ion-card>
   </ion-col>
 
-  <h3>Pokeballs</h3>
+  <h3><strong>Pokeballs</strong></h3>
 
   <ion-col>
 
     <ion-card>
       <ion-card-header>
-        <img src="data:image/jpeg;base64,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">
+        <img src="https://yt3.ggpht.com/a/AATXAJztzu5KdLoX5vq9qyY2Cvqt8kqLcIs5KbgWeQ=s900-c-k-c0xffffffff-no-rj-mo">
         <ion-card-title><strong>Pokéball</strong></ion-card-title>
-        <ion-card-subtitle><strong>Class:<ion-card color="warning"> Pokeball</ion-card></strong></ion-card-subtitle>
+        <ion-card-subtitle><strong>Class:  <ion-badge style="background:#d1b854"> Pokeball</ion-badge></strong></ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <strong>Uma Pokebola comum entre os jogadores novatos que enfrentam pequenos pokemons</strong>
+        <strong>Uma Pokebola comum entre os jogadores novatos que enfrentam pequenos pokemons.</strong>
       </ion-card-content>
     </ion-card>
 
     <ion-card>
       <ion-card-header>
-        <img src="https://www.pngix.com/pngfile/middle/8-83464_great-ball-png-great-balls-pokemon-go-transparent.png">
+        <img src="https://th.bing.com/th/id/OIP.SwsdUHe8o0vYf56o6N3S_wAAAA?pid=ImgDet&rs=1">
         <ion-card-title><strong>Great Pokéball</strong></ion-card-title>
-        <ion-card-subtitle><strong>Class:<ion-card color="warning"> Pokeball</ion-card></strong></ion-card-subtitle>
+        <ion-card-subtitle><strong>Class:  <ion-badge style="background:#d1b854"> Pokeball</ion-badge></strong></ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <strong>Pokebola intermediaria usada por jogadores amadores que enfrentam medios e pequenos pokemons</strong>
+        <strong>Pokebola intermediaria usada por jogadores amadores que enfrentam medios e pequenos pokemons.</strong>
       </ion-card-content>
     </ion-card>
 
     <ion-card>
       <ion-card-header>
-        <img src="https://www.pngjoy.com/pngm/230/4487437_masterball-pokemon-ultra-ball-png-png-download.png">
+        <img src="https://th.bing.com/th/id/OIP.b07f4HKPbowynmgJ6kIqcgAAAA?pid=ImgDet&rs=1">
         <ion-card-title><strong>Ultra Pokéball</strong></ion-card-title>
-        <ion-card-subtitle><strong>Class:<ion-card color="warning"> Pokeball</ion-card></strong></ion-card-subtitle>
+        <ion-card-subtitle><strong>Class:  <ion-badge style="background:#d1b854"> Pokeball</ion-badge></strong></ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
-        <strong>Usada por jogadores profissionais, principalmente em torneios para capturar Pokémon de grandes
+        <strong>Usada por jogadores profissionais, principalmente em torneios para capturar Pokémon de grandes.
           níveis</strong>
       </ion-card-content>
     </ion-card>
 
     <ion-card>
       <ion-card-header>
-        <img src="https://www.clipartmax.com/png/middle/190-1909039_master-ball-by-adfpf1-ash-throw-master-ball.png">
+        <img
+          src="https://th.bing.com/th/id/R056adeeb8ee0ad9b2bc93eb61602ca42?rik=nnTIQiyBeIWkLw&riu=http%3a%2f%2fqtoptens.com%2fwp-content%2fuploads%2f2017%2f09%2fmasterball.png&ehk=9kBEQjYIaSz4diyYT16qYCBDog6c5gNpabzutqdow68%3d&risl=&pid=ImgRaw">
         <ion-card-title><strong>Master Pokéball</strong></ion-card-title>
-        <ion-card-subtitle><strong>Class:<ion-card color="warning"> Pokeball</ion-card></strong></ion-card-subtitle>
+        <ion-card-subtitle><strong>Class: <ion-badge style="background:#d1b854"> Pokeball</ion-badge></strong></ion-card-subtitle>
       </ion-card-header>
       <ion-card-content>
         <strong>Usada para capturar todos tipos de pokémons, comum até o legendário com efetividade total.</strong>
@@ -109,6 +108,182 @@
     </ion-card>
 
   </ion-col>
+
+  <h4><strong>Types Food</strong></h4>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/d/db/Razz_Berry.png/revision/latest/scale-to-width-down/150?cb=20160726023117">
+      <ion-card-title><strong>Razz Berry</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#ac45a3"> Food</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Alimentando um Pokémon aumenta a chance de sucesso em 1,5 vezes em captura-lo.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/d/d1/Pinap_Berry.png/revision/latest/scale-to-width-down/150?cb=20170215214207">
+      <ion-card-title><strong>Pinap Berry</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#ac45a3"> Food</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Alimenta Pokémons de alto niveis e aumenta a chance de sucesso em 2,5 vezes em captura-lo.</strong>
+    </ion-card-content>
+  </ion-card>
+
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/8/82/Nanab_Berry.png/revision/latest/scale-to-width-down/150?cb=20170215214223">
+      <ion-card-title><strong>Nanab Berry</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#ac45a3"> Food</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Algumas raças de Pokemons gostam mais deste tipo de alimento, os tornando mais dóceis.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/b/b5/Golden_Razz_Berry.png/revision/latest/scale-to-width-down/150?cb=20170620212419">
+      <ion-card-title><strong>Golden Razz Berry</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#ac45a3"> Food</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Alimenta Pokémons de alto niveis e aumenta a chance de sucesso em 3,5 vezes em captura-lo.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/4/44/Silver_Pinap_Berry.png/revision/latest/scale-to-width-down/150?cb=20180820215017">
+      <ion-card-title><strong>Silver Pinap Berry</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#ac45a3"> Food</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>É usado para alimentar pokemons da raça pedra.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/f/f6/Unconfirmed_Item_Bluk_Berry.png/revision/latest/scale-to-width-down/150?cb=20160810182914">
+      <ion-card-title><strong>Bluk Berry</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#ac45a3"> Food</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Alimenta Pokémons de alto niveis e aumenta a chance de sucesso em 4,5 vezes em captura-lo.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/d/de/Unconfirmed_Item_Wepear_Berry.png/revision/latest/scale-to-width-down/150?cb=20160810182943">
+      <ion-card-title><strong>Wepear Berry</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#ac45a3"> Food</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Alimento usado para curar feridas.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <h5 class="blue">Egg Incubator</h5>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/a/a4/Incubator_Unlimited.png/revision/latest/scale-to-width-down/150?cb=20170822025125">
+      <ion-card-title><strong>Comum Egg Incubator</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#4c45ac"> Incubator</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>É usado em grande parte em Pokemons comuns de pequenos e médios tamanho.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/d/db/Incubator_Limited.png/revision/latest/scale-to-width-down/150?cb=20170822025124">
+      <ion-card-title><strong>Avanced Egg Incubator</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#4c45ac"> Incubator</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>É usado para incubar Pokemons grandes ou especificos.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/d/d5/Super_Incubator.png/revision/latest/scale-to-width-down/150?cb=20170822025125">
+      <ion-card-title><strong>Super Egg Incubator</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#4c45ac"> Incubator</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>É usado pra incubar pokemons raros e delicados.</strong>
+    </ion-card-content>
+  </ion-card>
+
+
+  <h5 class="red">Raid Passes</h5>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/e/ef/Raid_Pass.png/revision/latest/scale-to-width-down/150?cb=20170620212443">
+      <ion-card-title><strong>Raid Pass</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#8d1a1a"> Incubator</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>É usado para chamar atenção de Pokemons comuns para captura-los.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/8/87/Premium_Battle_Pass.png/revision/latest/scale-to-width-down/150?cb=20170620212452">
+      <ion-card-title><strong>Premium Battle Pass</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#8d1a1a"> Incubator</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>É usado para chamar atenção de Pokemons incomuns.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/1/13/Remote_Raid_Pass.png/revision/latest/scale-to-width-down/150?cb=20200507194813">
+      <ion-card-title><strong>Remote Raid Pass</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#8d1a1a"> Incubator</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>É usado para chamar atenção em um raio enorme de Pokemons nos arredores.</strong>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-card>
+    <ion-card-header>
+      <img
+        src="https://static.wikia.nocookie.net/pokemongo/images/1/16/EX_Raid_Pass.png/revision/latest/scale-to-width-down/150?cb=20170719092844">
+      <ion-card-title><strong>EX Raid Pass</strong></ion-card-title>
+      <ion-card-subtitle><strong>Class:   <ion-badge style="background:#8d1a1a"> Incubator</ion-badge></strong></ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Pokemons lendarios é invocados.</strong>
+    </ion-card-content>
+  </ion-card>
 
 
 </ion-content>
