@@ -36,11 +36,14 @@
   <section>
     <ion-row class="ion-align-items-center">
       <ion-col size="auto">
-        <ion-checkbox></ion-checkbox>
+        <ion-checkbox (click)="toggleCheck()"></ion-checkbox>
       </ion-col>
       <ion-col>
         <p>Remember me</p>
       </ion-col>
+
+    <!-- Instructions for password recovery -->  
+    
       <ion-col size="auto">
         <a href="#">Forgot your password?</a>
       </ion-col>

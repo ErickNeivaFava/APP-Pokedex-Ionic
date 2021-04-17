@@ -21,14 +21,25 @@ export class HomePage {
 
   public userPassword = '';
 
+  public checked = false;
+
   public showData() {
-    console.log(`Nome do usuário: ${this.userName} | Senha do usuário: ${this.userPassword}`);
+    if (this.userName === '' || this.userPassword === '') {
+      console.log(`Invalid username or password `)
+    } else {
+      console.log(`Username: ${this.userName}   Password: ${this.userPassword}`);
+    }
     this.userName = '';
     this.userPassword = '';
   }
 
+  public toggleCheck() {
+    this.checked = !this.checked;
+    console.log(`Checked: ${this.checked}`);
+  }
+
   public P = new this.Pokedex(this.options);
-  
+
   constructor() {
 
   }
