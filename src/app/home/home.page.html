@@ -11,35 +11,41 @@
     Welcome!
   </h1>
 
-  <ion-item color="primary">
-    <ion-label position="floating">
-      Username
-    </ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+  <!-- Login section -->
 
-  <ion-item color="primary">
-    <ion-label position="floating">
-      Password
-    </ion-label>
-    <ion-input type="text"></ion-input>
-  </ion-item>
+  <section>
+    <ion-item color="primary">
+      <ion-label position="floating">Username <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input [(ngModel)]="userName" required type="text"></ion-input>
+    </ion-item>
 
-  <ion-button color="danger" class="ion-margin-top" routerLink="/tabs/pokemons" expand="block">
-    Login
-  </ion-button>
+    <ion-item color="primary">
+      <ion-label position="floating">Password <ion-text color="danger">*</ion-text>
+      </ion-label>
+      <ion-input [(ngModel)]="userPassword" required type="password"></ion-input>
+    </ion-item>
+    <ion-button (click)="showData()" color="danger" class="ion-margin-top" routerLink="/tabs/pokemons" expand="block"
+      type="submit">
+      Login
+    </ion-button>
+  </section>
 
-  <ion-row class="ion-align-items-center">
-    <ion-col size="auto">
-      <ion-checkbox></ion-checkbox>
-    </ion-col>
-    <ion-col>
-      <p>Remember me</p>
-    </ion-col>
-    <ion-col size="auto">
-      <a href="#">Forgot your password?</a>
-    </ion-col>
-  </ion-row>
+  <!-- Utility section -->
 
-  <p class="ac">v0.1</p>
+  <section>
+    <ion-row class="ion-align-items-center">
+      <ion-col size="auto">
+        <ion-checkbox></ion-checkbox>
+      </ion-col>
+      <ion-col>
+        <p>Remember me</p>
+      </ion-col>
+      <ion-col size="auto">
+        <a href="#">Forgot your password?</a>
+      </ion-col>
+    </ion-row>
+  </section>
+
+  <p class="ac">App Version 0.2</p>
   <ion-content>

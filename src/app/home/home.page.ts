@@ -17,11 +17,18 @@ export class HomePage {
     timeout: 5 * 1000 // 5s
   }
 
-  public P = new this.Pokedex(this.options);
+  public userName = '';
 
-  public entrar() {
+  public userPassword = '';
+
+  public showData() {
+    console.log(`Nome do usuário: ${this.userName} | Senha do usuário: ${this.userPassword}`);
+    this.userName = '';
+    this.userPassword = '';
   }
 
+  public P = new this.Pokedex(this.options);
+  
   constructor() {
 
   }

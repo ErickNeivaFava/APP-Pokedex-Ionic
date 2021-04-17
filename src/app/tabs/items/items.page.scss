@@ -1,98 +1,84 @@
-ul{
-    font-style:bold;
+ul {
+    font-style: bold;
 }
 
-.negrito{
-    font-weight: bold;
-    font-size:25px;
-    font-family:'Italic';
-    color:rgb(71, 23, 21);
-}
-
-p{
-    font-size:16px;
+p {
+    font-size: 16px;
     font-weight: bold;
 }
 
-h5{
-    font-family:'Italic';
-    font-size:16px;
+h5 {
+    font-family: "Italic";
+    font-size: 16px;
     font-weight: bold;
-    text-align:center;
+    text-align: center;
 }
 
-.verde{
-    color:green;
-}
-
-h2{
-    text-align:center;
+h2 {
+    text-align: center;
     font-weight: bold;
-    font-family:'Arial';
-    color:rgb(26, 134, 26);
+    font-family: "Arial";
+    color: rgb(26, 134, 26);
 }
 
-ion-card img{
-    height:100px;
-    width:100px;
-  text-align: center center;
-
-    
+ion-card img {
+    height: 100px;
+    width: 100px;
+    text-align: center center;
 }
 
-h3{
-    text-align:center;
+h3 {
+    text-align: center;
     font-weight: bold;
-    font-family:'Arial';
-    color:rgb(197, 171, 22);
+    font-family: "Arial";
+    color: rgb(197, 171, 22);
 }
 
-ion-card-content{
+ion-card-content {
     font-weight: bold;
-    
 }
 
-h4{
-    text-align:center;
-    font-size:22px;
+h4 {
+    text-align: center;
+    font-size: 22px;
     font-weight: bold;
-    font-family:'Arial';
-    color:rgb(175, 40, 130);
+    font-family: "Arial";
+    color: rgb(175, 40, 130);
 }
 
-.poison{
-    color:rgb(175, 40, 130);
-
+ion-badge {
+    color: white;
+    background: brown;
 }
 
-h5{
-    h4{
-        text-align:center;
-        font-size:22px;
-        font-weight: bold;
-        font-family:'Arial';
-        color:rgb(64, 34, 148);
-    }
+ion-title {
+    text-shadow: 2px 2px #000000;
 }
 
-.blue{
-    text-align:center;
-        font-size:22px;
-        font-weight: bold;
-        font-family:'Arial';
-    color:blue;
-}
-
-.red{
-    color:brown;
-    text-align:center;
-    font-size:22px;
+.red {
+    color: brown;
+    text-align: center;
+    font-size: 22px;
     font-weight: bold;
-    font-family:'Arial';
+    font-family: "Arial";
 }
 
-ion-badge{
-    color:white;
-    background:brown;
-
+.blue {
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    font-family: "Arial";
+    color: blue;
+}
+.poison {
+    color: rgb(175, 40, 130);
+}
+.verde {
+    color: green;
+}
+.negrito {
+    font-weight: bold;
+    font-size: 25px;
+    font-family: "Italic";
+    color: rgb(71, 23, 21);
 }
