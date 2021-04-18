@@ -25,6 +25,7 @@
       </ion-label>
       <ion-input [(ngModel)]="userPassword" required type="password"></ion-input>
     </ion-item>
+
     <ion-button (click)="showData()" color="danger" class="ion-margin-top" routerLink="/tabs/pokemons" expand="block"
       type="submit">
       Login
@@ -42,8 +43,8 @@
         <p>Remember me</p>
       </ion-col>
 
-    <!-- Instructions for password recovery -->  
-    
+      <!-- Instructions for password recovery -->
+
       <ion-col size="auto">
         <a href="#">Forgot your password?</a>
       </ion-col>
