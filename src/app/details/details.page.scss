@@ -3,7 +3,7 @@ ion-card-title {
 }
 
 ion-card-content {
-    text-align: justify;
+    text-align: center;
 }
 
 ion-title {
@@ -18,10 +18,14 @@ h6 {
     font-weight: bold;
 }
 
-.item-avatar {
-   
+.item-avatar {   
     width: 50% !important;
     height: 100% !important;
     max-width: 90px !important;
     max-height: 100px !important;
 }
+
+ion-badge {
+    width: 60px;
+    font-size: 10px;
+  }

@@ -13,11 +13,10 @@
   <br>
 
   <ion-list *ngFor="let move of filteredMoves">
-
     <ion-item-sliding>
       <ion-item>
         <ion-col size="auto">
-          <ion-badge color="danger">{{move.type}}</ion-badge>
+          <ion-badge color="danger">{{move.type | uppercase}}</ion-badge>
         </ion-col>
         <ion-col>
           <ion-label class="move-name">{{move.name | titlecase }}</ion-label>
@@ -31,7 +30,7 @@
         </ion-col>
 
         <ion-col size="auto">
-          <ion-badge color="danger">{{move.category}}</ion-badge>
+          <ion-badge color="danger">{{move.category | uppercase}}</ion-badge>
         </ion-col>
       </ion-item>
 
