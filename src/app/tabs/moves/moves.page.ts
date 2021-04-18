@@ -1,3 +1,4 @@
+
 import { Component, OnInit } from '@angular/core';
 
 interface Move {
@@ -17,18 +18,31 @@ interface Move {
 
 export class MovesPage implements OnInit {
 
+  public currentFilter: string;
+
+  public updateFilter() {
+    if (this.currentFilter && this.currentFilter.trim() !== '') {
+      this.filteredMoves = this.moves.filter(move => move.name.includes(this.currentFilter.trim().toLowerCase()));
+    }
+    else {
+      this.filteredMoves = this.moves;
+    }
+  }
+
   public moves: Move[] = [
-    { id: 0, power: 90, accuracy: 75, category: "physical", type: 'normal', name: "Pound" },
-    { id: 1, power: 90, accuracy: 75, category: "physical", type: "fighting", name: "Karate Chop" },
-    { id: 2, power: 90, accuracy: 75, category: "physical", type: "flying", name: "Wing Attack" },
-    { id: 3, power: 90, accuracy: 75, category: "special", type: "fire", name: "Ember" },
-    { id: 4, power: 90, accuracy: 75, category: "special", type: "ice", name: "Aurora Beam" },
-    { id: 5, power: 90, accuracy: 75, category: "special", type: "eletric", name: "Thunderbolt" },
-    { id: 6, power: 90, accuracy: 75, category: "physical", type: "dark", name: "Bite" },
-    { id: 7, power: 90, accuracy: 75, category: "special", type: "eletric", name: "Thunder" },
-    { id: 8, power: 90, accuracy: 75, category: "status", type: "psychic", name: "Agility" },
-    { id: 9, power: 90, accuracy: 75, category: "physical", type: "water", name: "Aqua Tail" },
+    { id: 0, power: 90, accuracy: 75, category: 'physical', type: 'normal', name: 'pound' },
+    { id: 1, power: 90, accuracy: 75, category: 'physical', type: 'fighting', name: 'karate Chop' },
+    { id: 2, power: 90, accuracy: 75, category: 'physical', type: 'flying', name: 'wing Attack' },
+    { id: 3, power: 90, accuracy: 75, category: 'special', type: 'fire', name: 'ember' },
+    { id: 4, power: 90, accuracy: 75, category: 'special', type: 'ice', name: 'aurora Beam' },
+    { id: 5, power: 90, accuracy: 75, category: 'special', type: 'eletric', name: 'thunderbolt' },
+    { id: 6, power: 90, accuracy: 75, category: 'physical', type: 'dark', name: 'bite' },
+    { id: 7, power: 90, accuracy: 75, category: 'special', type: 'eletric', name: 'thunder' },
+    { id: 8, power: 90, accuracy: 75, category: 'status', type: 'psychic', name: 'agility' },
+    { id: 9, power: 90, accuracy: 75, category: 'physical', type: 'water', name: 'aqua tail' },
   ];
+
+  public filteredMoves: Move[] = this.moves;
 
   constructor() {
 

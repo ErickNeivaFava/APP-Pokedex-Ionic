@@ -8,11 +8,11 @@
 </ion-header>
 
 <ion-content color="light" class="ion-padding">
-  <ion-searchbar color="dark" style placeholder="Filter Moves">
+  <ion-searchbar color="dark" style placeholder="Filter Moves" [(ngModel)]="currentFilter" (ionChange)="updateFilter()">
   </ion-searchbar>
   <br>
 
-  <ion-list *ngFor="let move of moves">
+  <ion-list *ngFor="let move of filteredMoves">
 
     <ion-item-sliding>
       <ion-item>
@@ -20,7 +20,7 @@
           <ion-badge color="danger">{{move.type}}</ion-badge>
         </ion-col>
         <ion-col>
-          <ion-label class="move-name">{{move.name}}</ion-label>
+          <ion-label class="move-name">{{move.name | titlecase }}</ion-label>
         </ion-col>
 
         <ion-col size="auto">
