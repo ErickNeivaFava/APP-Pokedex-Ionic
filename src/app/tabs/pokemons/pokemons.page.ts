@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 
-
 interface Poke {
   id: number;
-  nome: string;
+  name: string;
+  src: string;
 }
-
 
 @Component({
   selector: 'app-pokemons',
@@ -26,43 +25,46 @@ export class PokemonsPage implements OnInit {
 
   public P = new this.Pokedex(this.options);
 
-  /* 
-  public newPokeNome = '';
+  public currentFilter: string;
 
-  public currentFilter: '' = '';
-
-  public currentSearch = '';
-  */
+  public updateFilter() {
+    if (this.currentFilter && this.currentFilter.trim() !== '') {
+      this.filteredPokes = this.pokes.filter(poke => poke.name.includes(this.currentFilter.trim().toLowerCase()));
+    }
+    else {
+      this.filteredPokes = this.pokes;
+    }
+  }
 
   public pokes: Poke[] = [
 
-    { id: 1, nome: "Bulbasaur" },
-    { id: 2, nome: "Ivysaur" },
-    { id: 3, nome: "Venusaur" },
-    { id: 4, nome: "Charmander" },
-    { id: 5, nome: "Charmeleon" },
-    { id: 6, nome: "Charizard" },
-    { id: 7, nome: "Squirtle" },
-    { id: 8, nome: "Wartortle" },
-    { id: 9, nome: "Blastoise" },
-    { id: 10, nome: "Caterpie" },
-    { id: 11, nome: "Metapod" },
-    { id: 12, nome: "Butterfree" },
-    { id: 13, nome: "Weedle" },
-    { id: 14, nome: "Kakuna" },
-    { id: 15, nome: "Beedrill" },
-    { id: 16, nome: "Pidgey" },
-    { id: 17, nome: "Pidgeotto" },
-    { id: 18, nome: "Pidgeot" },
-    { id: 19, nome: "Rattata" },
-    { id: 20, nome: "Raticate" },
-    { id: 21, nome: "Spearow" },
-    { id: 22, nome: "Fearow" },
-    { id: 23, nome: "Ekans" },
-    { id: 24, nome: "Arbok" }
-
+    { id: 1, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/1.png', name: "bulbasaur" },
+    { id: 2, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/2.png', name: "ivysaur" },
+    { id: 3, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/3.png', name: "venusaur" },
+    { id: 4, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/4.png', name: "charmander" },
+    { id: 5, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/5.png', name: "charmeleon" },
+    { id: 6, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/6.png', name: "charizard" },
+    { id: 7, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/7.png', name: "squirtle" },
+    { id: 8, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/8.png', name: "wartortle" },
+    { id: 9, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/9.png', name: "blastoise" },
+    { id: 10, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/10.png', name: "caterpie" },
+    { id: 11, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/11.png', name: "metapod" },
+    { id: 12, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/12.png', name: "butterfree" },
+    { id: 13, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/13.png', name: "weedle" },
+    { id: 14, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/14.png', name: "kakuna" },
+    { id: 15, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/15.png', name: "beedrill" },
+    { id: 16, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/16.png', name: "pidgey" },
+    { id: 17, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/17.png', name: "pidgeotto" },
+    { id: 18, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/18.png', name: "pidgeot" },
+    { id: 19, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/19.png', name: "rattata" },
+    { id: 20, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/20.png', name: "raticate" },
+    { id: 21, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/21.png', name: "spearow" },
+    { id: 22, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/22.png', name: "fearow" },
+    { id: 23, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/23.png', name: "ekans" },
+    { id: 24, src: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/24.png', name: "arbok" }
   ];
-  //public filteredPokes: Poke[] = this.pokes;
+
+  public filteredPokes: Poke[] = this.pokes;
 
   constructor() { }
 
@@ -88,7 +90,6 @@ export class PokemonsPage implements OnInit {
           console.log('There was an ERROR: ', error);
         });
     }
-
   }
 
   /*   
@@ -97,13 +98,13 @@ export class PokemonsPage implements OnInit {
 
   public updateFilter() {
     let filteredBySegment: Poke[];
-    filteredBySegment = this.pokes.filter(pokes => pokes.nome);
+    filteredBySegment = this.pokes.filter(pokes => pokes.name);
     if (this.currentSearch === '') {
       this.filteredPokes = filteredBySegment;
     } else {
       const lowercase = this.currentSearch.toLowerCase()
       this.filteredPokes = filteredBySegment.filter(
-        pokes => pokes.nome.toLowerCase().includes(lowercase)
+        pokes => pokes.name.toLowerCase().includes(lowercase)
       );
     }
   }*/
@@ -130,7 +131,5 @@ export class PokemonsPage implements OnInit {
         console.log(response);
         response.results;
       })
-
   }
-
 }
