@@ -8,8 +8,8 @@ import { LoginService } from '../services/login.service';
 })
 export class HomePage {
 
-  public userName: string;
-  public userPassword: string;
+  public userName: string = '';
+  public userPassword: string = '';
   public rememberMe: boolean;
 
   constructor(private loginService: LoginService) {
