@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoginService } from '../services/login.service';
 
 @Component({
   selector: 'app-home',
@@ -7,65 +8,57 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  public Pokedex = require('pokedex-promise-v2');
+  public userName: string;
+  public userPassword: string;
+  public rememberMe: boolean;
 
-  public options = {
-    protocol: 'https',
-    hostName: 'pokeapi.co',
-    versionPath: '/api/v2/',
-    cacheLimit: 100 * 1000, // 100s
-    timeout: 5 * 1000 // 5s
+  constructor(private loginService: LoginService) {
   }
 
-  public userName = '';
-
-  public userPassword = '';
-
-  public checked = false;
-
   public showData() {
-    if (this.userName === '' || this.userPassword === '') {
-      console.log(`Invalid username or password `)
-    } else {
-      console.log(`Username: ${this.userName}   Password: ${this.userPassword}`);
-    }
+    this.loginService.checkUserData(this.userName, this.userPassword);
     this.userName = '';
     this.userPassword = '';
   }
 
-  public toggleCheck() {
-    this.checked = !this.checked;
-    console.log(`Checked: ${this.checked}`);
+  public updateRememberMe() {
+    this.loginService.showCheckBoxState(this.rememberMe);
   }
 
-  public P = new this.Pokedex(this.options);
+  // public Pokedex = require('pokedex-promise-v2');
 
-  constructor() {
+  // public options = {
+  //   protocol: 'https',
+  //   hostName: 'pokeapi.co',
+  //   versionPath: '/api/v2/',
+  //   cacheLimit: 100 * 1000, // 100s
+  //   timeout: 5 * 1000 // 5s
+  // }
 
-  }
+  // public P = new this.Pokedex(this.options);
 
-  public getPoke(id) {
 
-    //var P = new this.Pokedex(this.options);
+  // public getPoke(id) {
+  //   //var P = new this.Pokedex(this.options);
 
-    this.P.getPokemonByName(id) // with Promise
-      .then(function (response) {
-        console.log(response);
-        console.log(response.id);
-        console.log(response.species.name);
-        console.log(response.sprites.front_default);
+  //   this.P.getPokemonByName(id) // with Promise
+  //     .then(function (response) {
+  //       console.log(response);
+  //       console.log(response.id);
+  //       console.log(response.species.name);
+  //       console.log(response.sprites.front_default);
 
-        return response;
-      })
-      .catch(function (error) {
-        console.log('There was an ERROR: ', error);
-      });
+  //       return response;
+  //     })
+  //     .catch(function (error) {
+  //       console.log('There was an ERROR: ', error);
+  //     });
 
-    this.P.getPokemonsList()
-      .then(function (response) {
-        console.log(response);
-        response.results;
+  //   this.P.getPokemonsList()
+  //     .then(function (response) {
+  //       console.log(response);
+  //       response.results;
 
-      })
-  }
+  //     })
+  // }
 }

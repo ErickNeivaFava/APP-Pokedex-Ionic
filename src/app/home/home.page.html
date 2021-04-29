@@ -37,7 +37,7 @@
   <section>
     <ion-row class="ion-align-items-center">
       <ion-col size="auto">
-        <ion-checkbox (click)="toggleCheck()"></ion-checkbox>
+        <ion-checkbox [(ngModel)]="rememberMe" (ionChange)="updateRememberMe()"></ion-checkbox>
       </ion-col>
       <ion-col>
         <p>Remember me</p>
