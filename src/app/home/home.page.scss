@@ -1,58 +1,52 @@
 ion-content {
   --background: url(https://i.pinimg.com/originals/65/bb/6b/65bb6b19742569e7e148c8637090bdf8.jpg) no-repeat center
     center fixed;
-  --background-size: cover; /*Css padrão*/
-  --webkit-background-size: cover; /*Css safari e chrome*/
-  --moz-background-size: cover; /*Css firefox*/
-  --ms-background-size: cover; /*Css IE não use mer#^@%#*/
-  background-size: cover; /*Css Opera*/
-}
 
-ion-title {
-  text-shadow: 2px 2px #000000;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-}
+  ion-title {
+    text-shadow: 2px 2px #000000;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+  }
+  h1 {
+    text-shadow: 2px 2px #000000;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    font-size: 24px;
+  }
 
-h1 {
-  text-shadow: 2px 2px #000000;
-  color: white;
-  text-align: center;
-  font-weight: bold;
-  font-size: 24px;
-}
+  ion-button {
+    --border-radius: 1rem;
+    font-size: 18px;
+    font-weight: bold;
+  }
 
-ion-button {
-  --border-radius: 1rem;
-  font-size: 18px;
-  font-weight: bold;
-}
+  ion-label {
+    font-style: italic;
+    color: white;
+  }
 
-ion-label {
-  font-style: italic;
-  color: white;
-}
+  a {
+    text-shadow: 2px 2px #000000;
+    color: white;
+    text-decoration: none;
 
-a {
-  text-shadow: 2px 2px #000000;
-  color: white;
-  text-decoration: none;
-}
+    &:hover {
+      color: red;
+    }
+  }
 
-p {
-  color: white;
-  text-shadow: 2px 2px #000000;
-}
+  p {
+    color: white;
+    text-shadow: 2px 2px #000000;
+  }
 
-a:hover {
-  color: red;
-}
+  .ac {
+    text-align: center;
+  }
 
-.ac {
-  text-align: center;
-}
-
-ion-card-content{
-  color:black;
+  ion-card-content {
+    color: black;
+  }
 }

@@ -22,8 +22,7 @@ export class PokemonsPage implements OnInit {
   constructor(
     private pokemonService: PokemonService,
     private filterService: FilterService
-  ) {
-  }
+  ) { }
 
   public updateFilter() {
     this.filteredPokes = this.filterService.filterPokeByName(this.pokes, this.currentFilter);
