@@ -14,7 +14,7 @@ export interface Item {
 export class ItemsService {
 
   public allItems = [
-    { id: 1, src: 'https://cdn.bulbagarden.net/upload/thumb/2/2e/GO_Potion.png/200px-GO_Potion.png', description: 'Recupera 20 HP', class: 'potion', name: 'small potion' },
+    { id: 1, src: 'https://cdn2.bulbagarden.net/upload/thumb/2/2e/GO_Potion.png/200px-GO_Potion.png', description: 'Recupera 20 HP', class: 'potion', name: 'small potion' },
     { id: 2, src: 'https://img.rankedboost.com/wp-content/uploads/2016/08/Super-Potion-Pokemon-Go.png', description: 'Recupera 50 HP', class: 'potion', name: 'medium potion' },
     { id: 3, src: 'https://pokestop.cz/wp-content/uploads/2019/11/Hyper-Potion.png', description: 'Recupera 200 HP', class: 'potion', name: 'big potion' },
     { id: 4, src: 'https://e-lexia.com/pokemon-go/img/objeto-pocion-maxima-pokemon-go.png', description: 'Recupera HP máximo', class: 'potion', name: 'hyper potion' },

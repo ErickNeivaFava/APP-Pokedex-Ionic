@@ -15,21 +15,22 @@
   <ion-list *ngFor="let move of filteredMoves">
     <ion-item-sliding>
       <ion-item>
-        <ion-col size="auto">
-          <ion-badge color="danger">{{move.type | uppercase}}</ion-badge>
-        </ion-col>
-        <ion-col>
+        <ion-col size="5">
           <ion-label class="move-name">{{move.name | titlecase }}</ion-label>
         </ion-col>
 
-        <ion-col size="auto">
+        <ion-col size="">
           <ion-text class="move-pa">
-            Power: {{move.power}} <br>
-            Accuracy: {{move.accuracy}}
+            <span>Power: {{move.power}}</span>
+            <br>
+            <span>Accuracy: {{move.accuracy}}</span>
           </ion-text>
         </ion-col>
 
-        <ion-col size="auto">
+        <ion-col class="tae" size="3">
+          <ion-badge color="danger">{{move.type | uppercase}}</ion-badge>
+
+          <br>
           <ion-badge color="danger">{{move.category | uppercase}}</ion-badge>
         </ion-col>
       </ion-item>
