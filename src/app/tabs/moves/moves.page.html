@@ -16,11 +16,11 @@
     <ion-item-sliding>
       <ion-item>
         <ion-col size="5">
-          <ion-label class="move-name">{{move.name | titlecase }}</ion-label>
+          <span>{{move.name | titlecase }}</span>
         </ion-col>
 
-        <ion-col size="">
-          <ion-text class="move-pa">
+        <ion-col size="4">
+          <ion-text class="move-pa ">
             <span>Power: {{move.power}}</span>
             <br>
             <span>Accuracy: {{move.accuracy}}</span>
@@ -29,7 +29,6 @@
 
         <ion-col class="tae" size="3">
           <ion-badge color="danger">{{move.type | uppercase}}</ion-badge>
-
           <br>
           <ion-badge color="danger">{{move.category | uppercase}}</ion-badge>
         </ion-col>
