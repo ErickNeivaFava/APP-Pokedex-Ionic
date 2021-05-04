@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Pokemon, PokemonService } from '../services/pokemon.service';
 
 @Component({
   selector: 'app-details',
   templateUrl: './details.page.html',
   styleUrls: ['./details.page.scss'],
 })
-export class DetailsPage implements OnInit {
+export class DetailsPage {
 
-  constructor() { }
+  public id: number;
+  public selectedPokemon: Pokemon;
 
-  ngOnInit() {
+  constructor(
+    private route: ActivatedRoute,
+    private pokemonService: PokemonService
+  ) {
+    this.id = +route.snapshot.paramMap.get('id');
+    this.selectedPokemon = this.pokemonService.allPokemon.find(pokemon => pokemon.id === this.id);
   }
-
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FilterService } from 'src/app/services/filter.service';
 import { Pokemon, PokemonService } from 'src/app/services/pokemon.service';
 
@@ -7,25 +7,22 @@ import { Pokemon, PokemonService } from 'src/app/services/pokemon.service';
   templateUrl: './pokemons.page.html',
   styleUrls: ['./pokemons.page.scss'],
 })
-export class PokemonsPage implements OnInit {
+export class PokemonsPage {
 
   public currentFilter: string;
-  public pokes: Pokemon[];
+  public allPokemon: Pokemon[];
   public filteredPokes: Pokemon[];
-
-  ngOnInit() {
-    this.pokes = this.pokemonService.allPokemon;
-    this.filteredPokes = this.pokes;
-    //   this.getAllPokes();
-  }
 
   constructor(
     private pokemonService: PokemonService,
     private filterService: FilterService
-  ) { }
+  ) {
+    this.allPokemon = this.pokemonService.allPokemon;
+    this.filteredPokes = this.allPokemon;
+  }
 
   public updateFilter() {
-    this.filteredPokes = this.filterService.filterPokeByName(this.pokes, this.currentFilter);
+    this.filteredPokes = this.filterService.filterPokeByName(this.allPokemon, this.currentFilter);
   }
   // public Pokedex = require('pokedex-promise-v2');
 

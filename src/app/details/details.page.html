@@ -8,35 +8,33 @@
 </ion-header>
 
 <ion-content color="light" class="ion-padding">
-  <h6>Pokémon selected:</h6>
+  <h6>Selected Pokémon:</h6>
   <ion-card class="ion-margin-bottom card">
-    <ion-card-header>
+    <ion-card-header class="ion-no-padding">
       <ion-slides>
         <ion-slide>
           <ion-avatar class="item-avatar">
-            <img src="https://www.seekpng.com/png/full/99-991972_16-bit-bulbasaur-pixel-art-pokemon-bulbasaur.png">
+            <ion-img [src]="selectedPokemon.src"></ion-img>
           </ion-avatar>
         </ion-slide>
-
         <ion-slide>
           <ion-avatar class="item-avatar">
-            <img
-              src="https://www.seekpng.com/png/full/99-992000_bulbasaur-png-image-with-transparent-background-bulbasaur-gen.png">
+            <ion-img [src]="selectedPokemon.src"></ion-img>
           </ion-avatar>
         </ion-slide>
       </ion-slides>
-
-      <ion-row>
-        <ion-col style="text-align: end;">
-          <ion-badge style="background: #78c850;">GRASS</ion-badge>
-        </ion-col>
-        <ion-col>
-          <ion-badge style="background: #a040a0;">POISON</ion-badge>
-        </ion-col>
-      </ion-row>
-
-      <ion-card-title>Bulbasaur</ion-card-title>
     </ion-card-header>
+
+    <ion-card-title>{{ selectedPokemon.name | titlecase }}</ion-card-title>
+    <ion-row>
+      <ion-col style="text-align: end;">
+        <ion-badge style="background: #78c850;">Type</ion-badge>
+      </ion-col>
+      <ion-col>
+        <ion-badge style="background: #a040a0;">Type</ion-badge>
+      </ion-col>
+    </ion-row>
+
     <ion-card-content>
       While it is young, it uses the nutrients that are stored in the seed on its back in order to grow.
     </ion-card-content>

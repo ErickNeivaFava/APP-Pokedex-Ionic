@@ -10,42 +10,42 @@ export class FilterService {
 
   // Pokémon name filter
 
-  public filterPokeByName(pokes: Pokemon[], currentFilter: string) {
-    let filteredPokes: Pokemon[] = [];
+  public filterPokeByName(allPokemon: Pokemon[], currentFilter: string) {
+    let filteredPokemon: Pokemon[] = [];
     if (currentFilter && currentFilter.trim() !== '') {
-      filteredPokes = pokes.filter(poke => poke.name.includes(currentFilter.trim().toLowerCase()));
-      return filteredPokes;
+      filteredPokemon = allPokemon.filter(pokemon => pokemon.name.includes(currentFilter.trim().toLowerCase()));
+      return filteredPokemon;
     }
     else {
-      filteredPokes = pokes;
-      return filteredPokes;
+      filteredPokemon = allPokemon;
+      return filteredPokemon;
     }
   }
 
     // Items name filter
 
-  public filterItemByName(items: Item[], currentFilter: string) {
+  public filterItemByName(allItems: Item[], currentFilter: string) {
     let filteredItems: Item[] = [];
     if (currentFilter && currentFilter.trim() !== '') {
-      filteredItems = items.filter(item => item.name.includes(currentFilter.trim().toLowerCase()));
+      filteredItems = allItems.filter(item => item.name.includes(currentFilter.trim().toLowerCase()));
       return filteredItems;
     }
     else {
-      filteredItems = items;
+      filteredItems = allItems;
       return filteredItems;
     }
   }
 
       // Moves name filter
 
-  public filterMoveByName(moves: Move[], currentFilter: string) {
+  public filterMoveByName(allMoves: Move[], currentFilter: string) {
     let filteredMoves: Move[] = [];
     if (currentFilter && currentFilter.trim() !== '') {
-      filteredMoves = moves.filter(moves => moves.name.includes(currentFilter.trim().toLowerCase()));
+      filteredMoves = allMoves.filter(moves => moves.name.includes(currentFilter.trim().toLowerCase()));
       return filteredMoves;
     }
     else {
-      filteredMoves = moves;
+      filteredMoves = allMoves;
       return filteredMoves;
     }
   }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FilterService } from 'src/app/services/filter.service';
 import { Move, MovesService } from 'src/app/services/moves.service';
 
@@ -7,23 +7,21 @@ import { Move, MovesService } from 'src/app/services/moves.service';
   templateUrl: './moves.page.html',
   styleUrls: ['./moves.page.scss'],
 })
-export class MovesPage implements OnInit {
+export class MovesPage {
 
   public currentFilter: string;
-  public moves: Move[];
+  public allMoves: Move[];
   public filteredMoves: Move[];
-
-  ngOnInit() {
-    this.moves = this.movesService.allMoves;
-    this.filteredMoves = this.moves;
-  }
 
   constructor(
     private movesService: MovesService,
     private filterService: FilterService
-  ) { }
+  ) {
+    this.allMoves = this.movesService.allMoves;
+    this.filteredMoves = this.allMoves;
+  }
 
   public updateFilter() {
-    this.filteredMoves = this.filterService.filterMoveByName(this.moves, this.currentFilter);
+    this.filteredMoves = this.filterService.filterMoveByName(this.allMoves, this.currentFilter);
   }
 }
