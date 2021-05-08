@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
-
   public checkUserData(userName: string, userPassword: string) {
     if (userName === undefined || userPassword === undefined) {
       console.log(`Invalid username or password `);
@@ -17,5 +16,5 @@ export class LoginService {
     console.log(checkboxState);
   }
 
-  constructor() { }
+  constructor() {}
 }

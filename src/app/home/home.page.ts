@@ -7,13 +7,11 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-
   public userName: string = '';
   public userPassword: string = '';
   public rememberMe: boolean;
 
-  constructor(private loginService: LoginService) {
-  }
+  constructor(private loginService: LoginService) {}
 
   public showData() {
     this.loginService.checkUserData(this.userName, this.userPassword);
@@ -36,7 +34,6 @@ export class HomePage {
   // }
 
   // public P = new this.Pokedex(this.options);
-
 
   // public getPoke(id) {
   //   //var P = new this.Pokedex(this.options);

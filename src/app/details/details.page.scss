@@ -1,23 +1,24 @@
-ion-card-title {
+ion-card {
+  ion-card-title {
     text-align: center;
-}
 
-ion-card-content {
-    text-align: center;
-}
+    ion-card-content {
+      text-align: center;
+    }
+  }
 
-h6 {
-    margin-top: 10px;
-    font-style: italic;
-    font-weight: bold;
-}
+  ion-icon {
+    width: 25px;
+    height: 25px;
+  }
 
-.item-avatar {
+  .item-avatar {
     width: 164px;
     height: 164px;
-}
+  }
 
-ion-badge {
+  ion-badge {
     width: 60px;
     font-size: 10px;
   }
+}

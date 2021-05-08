@@ -9,8 +9,7 @@
 
 <ion-content color="light" class="ion-padding">
 
-  <ion-searchbar color="dark" style placeholder="Filter Pokémons" [(ngModel)]="currentFilter"
-    (ionChange)="updateFilter()"></ion-searchbar>
+  <ion-searchbar color="dark" style placeholder="Filter Pokémons" [(ngModel)]="currentFilter" (ionChange)="updateFilter()"></ion-searchbar>
 
   <ion-row>
     <ion-col *ngFor="let poke of filteredPokes" size="6" [routerLink]="['/details' , poke.id]">

@@ -8,7 +8,6 @@ import { Pokemon, PokemonService } from 'src/app/services/pokemon.service';
   styleUrls: ['./pokemons.page.scss'],
 })
 export class PokemonsPage {
-
   public currentFilter: string;
   public allPokemon: Pokemon[];
   public filteredPokes: Pokemon[];
@@ -22,7 +21,10 @@ export class PokemonsPage {
   }
 
   public updateFilter() {
-    this.filteredPokes = this.filterService.filterPokeByName(this.allPokemon, this.currentFilter);
+    this.filteredPokes = this.filterService.filterPokeByName(
+      this.allPokemon,
+      this.currentFilter
+    );
   }
   // public Pokedex = require('pokedex-promise-v2');
 

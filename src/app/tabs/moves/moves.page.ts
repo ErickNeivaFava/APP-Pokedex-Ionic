@@ -8,7 +8,6 @@ import { Move, MovesService } from 'src/app/services/moves.service';
   styleUrls: ['./moves.page.scss'],
 })
 export class MovesPage {
-
   public currentFilter: string;
   public allMoves: Move[];
   public filteredMoves: Move[];
@@ -22,6 +21,9 @@ export class MovesPage {
   }
 
   public updateFilter() {
-    this.filteredMoves = this.filterService.filterMoveByName(this.allMoves, this.currentFilter);
+    this.filteredMoves = this.filterService.filterMoveByName(
+      this.allMoves,
+      this.currentFilter
+    );
   }
 }

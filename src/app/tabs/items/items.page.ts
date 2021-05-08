@@ -8,7 +8,6 @@ import { Item, ItemsService } from 'src/app/services/items.service';
   styleUrls: ['./items.page.scss'],
 })
 export class ItemsPage {
-
   public currentFilter: string;
   public allItems: Item[];
   public filteredItems: Item[];
@@ -22,6 +21,9 @@ export class ItemsPage {
   }
 
   public updateFilter() {
-    this.filteredItems = this.filterService.filterItemByName(this.allItems, this.currentFilter);
+    this.filteredItems = this.filterService.filterItemByName(
+      this.allItems,
+      this.currentFilter
+    );
   }
 }
