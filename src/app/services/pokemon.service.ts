@@ -157,5 +157,9 @@ export class PokemonService {
     },
   ];
 
+  public findPokemonById(id: number) {
+    return this.allPokemon.find((pokemon) => pokemon.id === id);
+  }
+
   constructor() {}
 }

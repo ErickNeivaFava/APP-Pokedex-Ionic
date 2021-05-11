@@ -20,20 +20,17 @@ export class DetailsPage {
     private favoriteService: FavoriteService
   ) {
     this.id = +route.snapshot.paramMap.get('id');
-    this.selectedPokemon = this.pokemonService.allPokemon.find(
-      (pokemon) => pokemon.id === this.id
-    );
+    this.selectedPokemon = this.pokemonService.findPokemonById(this.id);
     this.allFavoritePokemon = this.favoriteService.allFavoritePokemon;
     this.checkFavorite();
   }
+
   public favPokemon() {
-    this.allFavoritePokemon = this.favoriteService.addFav(this.selectedPokemon);
+    this.allFavoritePokemon = this.favoriteService.handleFav(this.selectedPokemon);
     this.checkFavorite();
   }
 
   public checkFavorite() {
-    return (this.isFavorite = this.allFavoritePokemon.includes(
-      this.selectedPokemon
-    ));
+    this.isFavorite = this.favoriteService.checkFav(this.selectedPokemon);
   }
 }

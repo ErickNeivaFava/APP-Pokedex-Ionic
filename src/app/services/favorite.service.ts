@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Storage } from '@ionic/storage';
 import { Pokemon } from './pokemon.service';
 
 @Injectable({
@@ -7,20 +8,40 @@ import { Pokemon } from './pokemon.service';
 export class FavoriteService {
   public allFavoritePokemon: Pokemon[] = [];
 
-  public addFav(pokemonToFavorite: Pokemon): Pokemon[] {
-    if (
-      // Se achar algum pokémon
-      this.allFavoritePokemon.includes(pokemonToFavorite)
-    ) {
-      // Faça isso
+  constructor(private storage: Storage) {
+    this.loadFromStorage();
+  }
+
+  public async loadFromStorage() {
+    const favoritePokemon = (await this.storage.get(
+      'favoritePokemon'
+    )) as Pokemon[];
+    if (favoritePokemon) {
+      this.allFavoritePokemon.push(...favoritePokemon);
+    }
+  }
+
+  public setStorage() {
+    this.storage.set('favoritePokemon', this.allFavoritePokemon);
+  }
+
+  public handleFav(pokemonToFavorite: Pokemon): Pokemon[] {
+    if (this.checkFav(pokemonToFavorite)) {
       this.allFavoritePokemon = this.allFavoritePokemon.filter(
         (favoritePokemon) => favoritePokemon.id !== pokemonToFavorite.id
       );
-      return this.allFavoritePokemon;
     } else {
       this.allFavoritePokemon.push(pokemonToFavorite);
-      return this.allFavoritePokemon;
     }
+    this.setStorage();
+    return this.allFavoritePokemon;
   }
-  constructor() {}
+
+  public checkFav(pokemonToCheck: Pokemon): boolean {
+    console.log(this.allFavoritePokemon);
+    console.log(
+      this.allFavoritePokemon.map((p) => p.id).includes(pokemonToCheck.id)
+    );
+    return this.allFavoritePokemon.map((p) => p.id).includes(pokemonToCheck.id);
+  }
 }
