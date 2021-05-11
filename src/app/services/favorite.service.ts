@@ -8,15 +8,13 @@ import { Pokemon } from './pokemon.service';
 export class FavoriteService {
   public allFavoritePokemon: Pokemon[] = [];
 
-  constructor(private storage: Storage) {
-    this.loadFromStorage();
-  }
+  constructor(private storage: Storage) {}
 
   public async loadFromStorage() {
     const favoritePokemon = (await this.storage.get(
       'favoritePokemon'
     )) as Pokemon[];
-    if (favoritePokemon) {
+    if (favoritePokemon && this.allFavoritePokemon.length < 1) {
       this.allFavoritePokemon.push(...favoritePokemon);
     }
   }

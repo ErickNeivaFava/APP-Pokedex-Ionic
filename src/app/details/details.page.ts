@@ -22,15 +22,19 @@ export class DetailsPage {
     this.id = +route.snapshot.paramMap.get('id');
     this.selectedPokemon = this.pokemonService.findPokemonById(this.id);
     this.allFavoritePokemon = this.favoriteService.allFavoritePokemon;
-    this.checkFavorite();
+    this.favoriteService.loadFromStorage().then(() => {
+      this.isFavorite = this.checkFavorite();
+    });
   }
 
   public favPokemon() {
-    this.allFavoritePokemon = this.favoriteService.handleFav(this.selectedPokemon);
-    this.checkFavorite();
+    this.allFavoritePokemon = this.favoriteService.handleFav(
+      this.selectedPokemon
+    );
+    this.isFavorite = this.checkFavorite();
   }
 
-  public checkFavorite() {
-    this.isFavorite = this.favoriteService.checkFav(this.selectedPokemon);
+  public checkFavorite(): boolean {
+    return this.favoriteService.checkFav(this.selectedPokemon);
   }
 }
