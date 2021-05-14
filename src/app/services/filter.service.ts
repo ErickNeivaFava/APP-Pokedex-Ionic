@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Pokemon } from '../types/pokemon.type';
 import { Item } from './items.service';
 import { Move } from './moves.service';
-import { Pokemon } from './pokemon.service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,11 +15,10 @@ export class FilterService {
       filteredPokemon = allPokemon.filter((pokemon) =>
         pokemon.name.includes(currentFilter.trim().toLowerCase())
       );
-      return filteredPokemon;
     } else {
       filteredPokemon = allPokemon;
-      return filteredPokemon;
     }
+    return filteredPokemon;
   }
 
   // Items name filter
@@ -30,11 +29,10 @@ export class FilterService {
       filteredItems = allItems.filter((item) =>
         item.name.includes(currentFilter.trim().toLowerCase())
       );
-      return filteredItems;
     } else {
       filteredItems = allItems;
-      return filteredItems;
     }
+    return filteredItems;
   }
 
   // Moves name filter
@@ -45,11 +43,10 @@ export class FilterService {
       filteredMoves = allMoves.filter((moves) =>
         moves.name.includes(currentFilter.trim().toLowerCase())
       );
-      return filteredMoves;
     } else {
       filteredMoves = allMoves;
-      return filteredMoves;
     }
+    return filteredMoves;
   }
 
   constructor() {}

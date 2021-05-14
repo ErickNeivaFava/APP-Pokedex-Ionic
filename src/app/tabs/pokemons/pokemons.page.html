@@ -14,8 +14,8 @@
   <ion-row>
     <ion-col *ngFor="let poke of filteredPokes" size="6" [routerLink]="['/details' , poke.id]">
       <ion-card class="ion-activatable ripple-parent">
-        <ion-img [src]="poke.src"></ion-img>
-        <ion-card-title><strong>{{poke.name | titlecase}}</strong></ion-card-title>
+        <ion-img [src]="poke.sprites.front_default"></ion-img>
+        <ion-card-title><strong>{{poke.name | titlecase }}</strong></ion-card-title>
         <ion-ripple-effect></ion-ripple-effect>
       </ion-card>
     </ion-col>

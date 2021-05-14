@@ -1,10 +1,10 @@
 ion-card {
-  ion-card-title {
+  &-title {
     text-align: center;
+  }
 
-    ion-card-content {
-      text-align: center;
-    }
+  &-content {
+    text-align: center;
   }
 
   ion-icon {
@@ -20,5 +20,9 @@ ion-card {
   ion-badge {
     width: 60px;
     font-size: 10px;
+    
+    &:nth-child(2) {
+      margin-left: 10px;
+    }
   }
 }

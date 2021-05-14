@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Storage } from '@ionic/storage';
-import { Pokemon } from './pokemon.service';
+import { Pokemon } from '../types/pokemon.type';
 
 @Injectable({
   providedIn: 'root',
@@ -11,9 +11,7 @@ export class FavoriteService {
   constructor(private storage: Storage) {}
 
   public async loadFromStorage() {
-    const favoritePokemon = (await this.storage.get(
-      'favoritePokemon'
-    )) as Pokemon[];
+    const favoritePokemon = (await this.storage.get('favoritePokemon')) as Pokemon[];
     if (favoritePokemon && this.allFavoritePokemon.length < 1) {
       this.allFavoritePokemon.push(...favoritePokemon);
     }
@@ -36,10 +34,6 @@ export class FavoriteService {
   }
 
   public checkFav(pokemonToCheck: Pokemon): boolean {
-    console.log(this.allFavoritePokemon);
-    console.log(
-      this.allFavoritePokemon.map((p) => p.id).includes(pokemonToCheck.id)
-    );
     return this.allFavoritePokemon.map((p) => p.id).includes(pokemonToCheck.id);
   }
 }
