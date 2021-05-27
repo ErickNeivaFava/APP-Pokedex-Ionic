@@ -20,17 +20,19 @@
         </ion-col>
 
         <ion-col size="4">
-          <ion-text class="move-pa ">
-            <span>Power: {{move.power}}</span>
+          <ion-text class="move-pa">
+            <span *ngIf="move.power">Power: {{move.power}}</span>
+            <span *ngIf="!move.power">Power: ?</span>
             <br>
-            <span>Accuracy: {{move.accuracy}}</span>
+            <span *ngIf="move.accuracy">Accuracy: {{move.accuracy}}</span>
+            <span *ngIf="!move.accuracy">Accuracy: ?</span>
           </ion-text>
         </ion-col>
 
         <ion-col class="tae" size="3">
-          <ion-badge color="danger">{{move.type | uppercase}}</ion-badge>
+          <ion-badge color="danger">{{move.type.name | uppercase}}</ion-badge>
           <br>
-          <ion-badge color="danger">{{move.category | uppercase}}</ion-badge>
+          <ion-badge color="danger">{{move.damage_class.name | uppercase}}</ion-badge>
         </ion-col>
       </ion-item>
 

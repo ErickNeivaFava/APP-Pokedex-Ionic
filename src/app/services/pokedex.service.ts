@@ -5,9 +5,9 @@ import { Injectable } from '@angular/core';
 })
 export class PokedexService {
 
-  public Pokedex = require('pokedex-promise-v2');
+  private Pokedex = require('pokedex-promise-v2');
 
-  public options = {
+  private options = {
     protocol: 'https',
     hostName: 'pokeapi.co',
     versionPath: '/api/v2/',
@@ -16,7 +16,7 @@ export class PokedexService {
   };
 
   public interval = {
-    limit: 30,
+    limit: 250,
     offset: 0,
   };
 

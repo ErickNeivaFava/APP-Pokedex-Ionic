@@ -49,5 +49,5 @@ export class FilterService {
     return filteredMoves;
   }
 
-  constructor() {}
+  constructor() { }
 }

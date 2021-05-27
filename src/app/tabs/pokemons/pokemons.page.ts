@@ -16,14 +16,14 @@ export class PokemonsPage implements OnInit {
   constructor(
     private pokemonService: PokemonService,
     private filterService: FilterService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.onLoad();
   }
 
   public async onLoad() {
-    await this.pokemonService.getPokemonList();
+    await this.pokemonService.getPokemonsList();
     this.allPokemon = this.pokemonService.allPokemon;
     this.filteredPokes = this.allPokemon;
   }

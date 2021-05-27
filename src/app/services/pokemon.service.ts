@@ -13,20 +13,20 @@ export class PokemonService {
     return this.allPokemon.map((p) => p.id).includes(pokemon.id);
   }
 
-  public async fillPokemonList(response: any) {
-    for (let result of response.results) {
+  public async fillPokemonList(results: any) {
+    for (let result of results) {
       let pokemon = await this.http.get<Pokemon>(result.url).toPromise();
       !this.isPokeOnList(pokemon) ? this.allPokemon.push(pokemon) : '';
     }
   }
 
-  public async getPokemonList() {
+  public async getPokemonsList() {
     const response = await this.pokedexService.P.getPokemonsList(this.pokedexService.interval)
-    this.fillPokemonList(response);
+    this.fillPokemonList(response.results);
   }
 
   constructor(
     private http: HttpClient,
     private pokedexService: PokedexService
-  ) {}
+  ) { }
 }

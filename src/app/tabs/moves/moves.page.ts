@@ -20,8 +20,7 @@ export class MovesPage implements OnInit {
   constructor(
     private movesService: MovesService,
     private filterService: FilterService
-  ) {
-  }
+  ) { }
 
   public async onLoad() {
     await this.movesService.getMovesList();

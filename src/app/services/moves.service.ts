@@ -7,14 +7,25 @@ import { PokedexService } from './pokedex.service';
   providedIn: 'root',
 })
 export class MovesService {
-  public allMoves: Move[] = [
-  ];
+  public allMoves: Move[] = [];
+
+  public isMoveOnList(move: Move) {
+    return this.allMoves.map((move) => move.id).includes(move.id);
+  }
+
+  public async fillMovesList(results: any) {
+    for (let result of results) {
+      let move = await this.http.get<Move>(result.url).toPromise();
+      console.log(move)
+      !this.isMoveOnList(move) ? this.allMoves.push(move) : '';
+    }
+  }
 
   public async getMovesList() {
     const response = await this.pokedexService.P.getMovesList(
       this.pokedexService.interval
     );
-    console.log(response.results);
+    this.fillMovesList(response.results);
   }
 
   constructor(
