@@ -5,6 +5,8 @@ import { Injectable } from '@angular/core';
 })
 export class PokedexService {
 
+  //configurando a API
+
   private Pokedex = require('pokedex-promise-v2');
 
   private options = {

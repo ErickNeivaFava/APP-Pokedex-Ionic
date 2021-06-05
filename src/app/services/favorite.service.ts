@@ -10,14 +10,14 @@ export class FavoriteService {
 
   constructor(private storage: Storage) {}
 
-  public async loadFromStorage() {
+  public async loadFromStorage(): Promise<void> {
     const favoritePokemon = (await this.storage.get('favoritePokemon')) as Pokemon[];
     if (favoritePokemon && this.allFavoritePokemon.length < 1) {
       this.allFavoritePokemon.push(...favoritePokemon);
     }
   }
 
-  public setStorage() {
+  public setStorage(): void {
     this.storage.set('favoritePokemon', this.allFavoritePokemon);
   }
 

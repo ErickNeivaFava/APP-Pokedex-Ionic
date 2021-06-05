@@ -9,6 +9,7 @@ import { Pokemon } from 'src/app/types/pokemon.type';
   styleUrls: ['./pokemons.page.scss'],
 })
 export class PokemonsPage implements OnInit {
+
   public currentFilter: string;
   public allPokemon: Pokemon[];
   public filteredPokes: Pokemon[];
@@ -22,13 +23,13 @@ export class PokemonsPage implements OnInit {
     this.onLoad();
   }
 
-  public async onLoad() {
+  public async onLoad(): Promise<void> {
     await this.pokemonService.getPokemonsList();
     this.allPokemon = this.pokemonService.allPokemon;
     this.filteredPokes = this.allPokemon;
   }
 
-  public updateFilter() {
+  public updateFilter(): void {
     this.filteredPokes = this.filterService.filterPokeByName(
       this.allPokemon,
       this.currentFilter

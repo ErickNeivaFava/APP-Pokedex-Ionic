@@ -9,15 +9,11 @@ import { Item } from 'src/app/types/item.type';
   styleUrls: ['./items.page.scss'],
 })
 export class ItemsPage implements OnInit{
+
   public currentFilter: string;
   public allItems: Item[];
   public filteredItems: Item[];
 
-  public onLoad(){ 
-    this.itemsService.getItemsList();
-    this.allItems = this.itemsService.allItems;
-    this.filteredItems = this.allItems;
-  }
   ngOnInit(){
     this.onLoad();
   }
@@ -25,14 +21,20 @@ export class ItemsPage implements OnInit{
   constructor(
     private itemsService: ItemsService,
     private filterService: FilterService
-  ) {
-    
+  ) {   
   }
 
-  public updateFilter() {
+  public async onLoad(): Promise<void> { 
+    await this.itemsService.getItemsList();
+    this.allItems = this.itemsService.allItems;
+    this.filteredItems = this.allItems;
+  }
+
+  public updateFilter(): void {
     this.filteredItems = this.filterService.filterItemByName(
       this.allItems,
       this.currentFilter
     );
   }
+
 }

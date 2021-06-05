@@ -24,28 +24,28 @@ export class DetailsPage implements OnInit {
     private route: ActivatedRoute,
     private favoriteService: FavoriteService,
     private pokedexService: PokedexService
-  ) {}
+  ) { }
 
-  public async onLoad() {
+  public async onLoad(): Promise<void> {
     await this.favoriteService.loadFromStorage();
     this.allFavoritePokemon = this.favoriteService.allFavoritePokemon;
     await this.checkFavorite();
     // this.getPokeEvoChain();
   }
 
-  public favPokemon() {
+  public favPokemon(): void {
     this.allFavoritePokemon = this.favoriteService.handleFav(
       this.currentPokemon
     );
     this.checkFavorite();
   }
 
-  public async checkFavorite() {
+  public async checkFavorite(): Promise<void> {
     await this.getPoke(this.id);
     this.isFavorite = this.favoriteService.checkFav(this.currentPokemon);
   }
 
-  public async getPoke(id: number) {
+  public async getPoke(id: number): Promise<void> {
     const response = await this.pokedexService.P.getPokemonByName(id);
     this.currentPokemon = response;
   }

@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Move } from '../types/moves.type';
+import { Move } from '../types/move.type';
+
 import { PokedexService } from './pokedex.service';
 
 @Injectable({
@@ -9,19 +10,18 @@ import { PokedexService } from './pokedex.service';
 export class MovesService {
   public allMoves: Move[] = [];
 
-  public isMoveOnList(move: Move) {
+  public isMoveOnList(move: Move): boolean {
     return this.allMoves.map((move) => move.id).includes(move.id);
   }
 
-  public async fillMovesList(results: any) {
+  public async fillMovesList(results: any): Promise<void> {
     for (let result of results) {
       let move = await this.http.get<Move>(result.url).toPromise();
-      console.log(move)
       !this.isMoveOnList(move) ? this.allMoves.push(move) : '';
     }
   }
 
-  public async getMovesList() {
+  public async getMovesList(): Promise<void> {
     const response = await this.pokedexService.P.getMovesList(
       this.pokedexService.interval
     );

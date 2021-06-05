@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Item } from '../types/item.type';
-import { Move } from '../types/moves.type';
+import { Move } from '../types/move.type';
 import { Pokemon } from '../types/pokemon.type';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { Pokemon } from '../types/pokemon.type';
 export class FilterService {
   // Pokémon name filter
 
-  public filterPokeByName(allPokemon: Pokemon[], currentFilter: string) {
+  public filterPokeByName(allPokemon: Pokemon[], currentFilter: string): Pokemon[] {
     let filteredPokemon: Pokemon[] = [];
     if (currentFilter && currentFilter.trim() !== '') {
       filteredPokemon = allPokemon.filter((pokemon) =>
@@ -23,7 +23,7 @@ export class FilterService {
 
   // Items name filter
 
-  public filterItemByName(allItems: Item[], currentFilter: string) {
+  public filterItemByName(allItems: Item[], currentFilter: string): Item[] {
     let filteredItems: Item[] = [];
     if (currentFilter && currentFilter.trim() !== '') {
       filteredItems = allItems.filter((item) =>
@@ -37,7 +37,7 @@ export class FilterService {
 
   // Moves name filter
 
-  public filterMoveByName(allMoves: Move[], currentFilter: string) {
+  public filterMoveByName(allMoves: Move[], currentFilter: string): Move[] {
     let filteredMoves: Move[] = [];
     if (currentFilter && currentFilter.trim() !== '') {
       filteredMoves = allMoves.filter((moves) =>

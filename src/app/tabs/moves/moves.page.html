@@ -17,6 +17,8 @@
       <ion-item>
         <ion-col size="5">
           <span>{{move.name | titlecase }}</span>
+          <br>
+          <span *ngIf="move.id">#{{move.id}}</span>
         </ion-col>
 
         <ion-col size="4">
@@ -30,9 +32,9 @@
         </ion-col>
 
         <ion-col class="tae" size="3">
-          <ion-badge color="danger">{{move.type.name | uppercase}}</ion-badge>
+          <ion-badge color="danger">{{move.type.name}}</ion-badge>
           <br>
-          <ion-badge color="danger">{{move.damage_class.name | uppercase}}</ion-badge>
+          <ion-badge color="danger">{{move.damage_class.name}}</ion-badge>
         </ion-col>
       </ion-item>
 

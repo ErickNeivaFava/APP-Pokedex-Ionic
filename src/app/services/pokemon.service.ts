@@ -13,14 +13,14 @@ export class PokemonService {
     return this.allPokemon.map((p) => p.id).includes(pokemon.id);
   }
 
-  public async fillPokemonList(results: any) {
+  public async fillPokemonList(results: any): Promise<void> {
     for (let result of results) {
       let pokemon = await this.http.get<Pokemon>(result.url).toPromise();
       !this.isPokeOnList(pokemon) ? this.allPokemon.push(pokemon) : '';
     }
   }
 
-  public async getPokemonsList() {
+  public async getPokemonsList(): Promise<void> {
     const response = await this.pokedexService.P.getPokemonsList(this.pokedexService.interval)
     this.fillPokemonList(response.results);
   }

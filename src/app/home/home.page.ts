@@ -13,49 +13,13 @@ export class HomePage {
 
   constructor(private loginService: LoginService) {}
 
-  public showData() {
+  public showData(): void {
     this.loginService.checkUserData(this.userName, this.userPassword);
     this.userName = '';
     this.userPassword = '';
   }
 
-  public updateRememberMe() {
+  public updateRememberMe(): void {
     this.loginService.showCheckBoxState(this.rememberMe);
   }
-
-  // public Pokedex = require('pokedex-promise-v2');
-
-  // public options = {
-  //   protocol: 'https',
-  //   hostName: 'pokeapi.co',
-  //   versionPath: '/api/v2/',
-  //   cacheLimit: 100 * 1000, // 100s
-  //   timeout: 5 * 1000 // 5s
-  // }
-
-  // public P = new this.Pokedex(this.options);
-
-  // public getPoke(id) {
-  //   //var P = new this.Pokedex(this.options);
-
-  //   this.P.getPokemonByName(id) // with Promise
-  //     .then(function (response) {
-  //       console.log(response);
-  //       console.log(response.id);
-  //       console.log(response.species.name);
-  //       console.log(response.sprites.front_default);
-
-  //       return response;
-  //     })
-  //     .catch(function (error) {
-  //       console.log('There was an ERROR: ', error);
-  //     });
-
-  //   this.P.getPokemonsList()
-  //     .then(function (response) {
-  //       console.log(response);
-  //       response.results;
-
-  //     })
-  // }
 }

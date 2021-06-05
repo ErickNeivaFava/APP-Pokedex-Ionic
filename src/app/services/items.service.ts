@@ -9,11 +9,11 @@ import { PokedexService } from './pokedex.service';
 export class ItemsService {
   public allItems: Item[] = [];
 
- public isItemOnList(item:Item){
-  return this.allItems.map((item) => item.id).includes(item.id);
- }
+  public isItemOnList(item: Item): boolean {
+    return this.allItems.map((item) => item.id).includes(item.id);
+  }
 
-  public async fillItemsList(results: any){
+  public async fillItemsList(results: any): Promise<void> {
     for (let result of results) {
     let item = await this.http.get<Item>(result.url).toPromise();
       console.log(item);
@@ -21,7 +21,7 @@ export class ItemsService {
     }
   }
 
-  public async getItemsList(){
+  public async getItemsList(): Promise<void> {
     const response = await this.pokedexService.P.getItemsList(
       this.pokedexService.interval
     );
