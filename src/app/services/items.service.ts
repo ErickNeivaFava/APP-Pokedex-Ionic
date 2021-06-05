@@ -9,7 +9,7 @@ import { PokedexService } from './pokedex.service';
 export class ItemsService {
   public allItems: Item[] = [];
 
- public isItemOnList(item){
+ public isItemOnList(item:Item){
   return this.allItems.map((item) => item.id).includes(item.id);
  }
 

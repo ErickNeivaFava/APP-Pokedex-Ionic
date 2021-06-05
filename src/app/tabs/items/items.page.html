@@ -15,21 +15,18 @@
     <ion-col>
       <ion-card class="ion-text-center">
         <ion-card-header>
-          <ion-img [src]="item.src"></ion-img>
-          <ion-card-title><strong>{{item.name | titlecase}}</strong></ion-card-title>
+          <span> #{{item.id}}</span>
+          <!--Interpolação da variavel do TS-->
+          <ion-img [src]="item.sprites.default"></ion-img>
+          <ion-card-title>
+            {{item.name | titlecase}}
+          </ion-card-title>
           <ion-card-subtitle>
-            <ion-row class="ion-align-items-center">
-              <ion-col style="text-align: end;">
-                <strong>Class:</strong>
-              </ion-col>
-              <ion-col style="text-align: start;">
-                <ion-badge> {{item.class | uppercase}}</ion-badge>
-              </ion-col>
-            </ion-row>
+            <ion-badge color="danger">{{item.category.name}}</ion-badge>
           </ion-card-subtitle>
         </ion-card-header>
         <ion-card-content>
-          <strong>{{item.description}}</strong>
+          {{item.flavor_text_entries[2].text}}
         </ion-card-content>
       </ion-card>
     </ion-col>
