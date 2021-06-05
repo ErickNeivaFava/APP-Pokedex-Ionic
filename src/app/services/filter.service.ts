@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Item } from '../types/item.type';
 import { Move } from '../types/moves.type';
 import { Pokemon } from '../types/pokemon.type';
-import { Item } from './items.service';
 
 @Injectable({
   providedIn: 'root',
