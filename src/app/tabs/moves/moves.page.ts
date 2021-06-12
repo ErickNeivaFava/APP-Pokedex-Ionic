@@ -38,6 +38,8 @@ export class MovesPage implements OnInit {
   }
 
   public showMoveDesc(move: Move): void {
-    this.movesService.callMoveToast(move);
+    const { flavor_text_entries: textEntries } = move;
+    const descMessage = textEntries[2].flavor_text;
+    this.movesService.callDescriptionToast(descMessage);
   }
 }

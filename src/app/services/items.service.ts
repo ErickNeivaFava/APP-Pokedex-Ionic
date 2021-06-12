@@ -15,8 +15,7 @@ export class ItemsService {
 
   public async fillItemsList(results: any): Promise<void> {
     for (let result of results) {
-    let item = await this.http.get<Item>(result.url).toPromise();
-      console.log(item);
+      let item = await this.http.get<Item>(result.url).toPromise();
       !this.isItemOnList(item) ? this.allItems.push(item) : '';
     }
   }
@@ -25,11 +24,11 @@ export class ItemsService {
     const response = await this.pokedexService.P.getItemsList(
       this.pokedexService.interval
     );
-    this.fillItemsList(response.results)
+    this.fillItemsList(response.results);
   }
 
-  constructor(private pokedexService: PokedexService,private http: HttpClient) {
-    
-  }
-
+  constructor(
+    private pokedexService: PokedexService,
+    private http: HttpClient
+  ) {}
 }

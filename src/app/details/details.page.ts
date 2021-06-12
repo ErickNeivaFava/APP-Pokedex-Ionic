@@ -5,8 +5,7 @@ import { FavoriteService } from '../services/favorite.service';
 import { MovesService } from '../services/moves.service';
 import { PokedexService } from '../services/pokedex.service';
 import { EvoChain } from '../types/evoChain.type';
-import { Move } from '../types/move.type';
-import { PokemonMove, Pokemon } from '../types/pokemon.type';
+import { PokemonMove, Pokemon, PokemonAbility } from '../types/pokemon.type';
 import { PokeSpecies } from '../types/pokeSpecies.type';
 
 @Component({
@@ -52,6 +51,10 @@ export class DetailsPage implements OnInit {
     this.isFavorite = this.favoriteService.checkFav(this.currentPokemon);
   }
 
+  public showPokeAbilityDesc(currentAbility: PokemonAbility): void {
+    this.movesService.getPokemonAbility(currentAbility);
+  }
+
   public showPokeMoveDesc(pokemonMove: PokemonMove): void {
     this.movesService.getPokemonMove(pokemonMove);
   }
@@ -59,7 +62,7 @@ export class DetailsPage implements OnInit {
   public async getPoke(id: number): Promise<void> {
     const response = await this.pokedexService.P.getPokemonByName(id);
     this.currentPokemon = response;
-    //console.log(response.species);
+    // console.log(response.species);
   }
 
   public async getPokeEvoChain(id: number): Promise<void> {

@@ -1,5 +1,5 @@
 export interface Pokemon {
-  abilities: Ability[];
+  abilities: PokemonAbility[];
   base_experience: number;
   forms: Species[];
   game_indices: GameIndex[];
@@ -19,7 +19,7 @@ export interface Pokemon {
   weight: number;
 }
 
-export interface Ability {
+export interface PokemonAbility {
   ability: Species;
   is_hidden: boolean;
   slot: number;

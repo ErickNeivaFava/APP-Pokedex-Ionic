@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ToastController } from '@ionic/angular';
+import { Ability } from '../types/ability.type';
 import { Move } from '../types/move.type';
-import { PokemonMove } from '../types/pokemon.type';
+import { PokemonAbility, PokemonMove } from '../types/pokemon.type';
 
 import { PokedexService } from './pokedex.service';
 
@@ -30,19 +31,25 @@ export class MovesService {
     this.fillMovesList(response.results);
   }
 
-  public async getPokemonMove(pokemonMove: PokemonMove) {
+  public async getPokemonMove(pokemonMove: PokemonMove): Promise<void> {
     const { move } = pokemonMove;
     const pokeMove = await this.http.get<Move>(move.url).toPromise();
-    this.callMoveToast(pokeMove);
-  }
-
-  public callMoveToast(move: Move) {
-    const { flavor_text_entries: textEntries } = move;
+    const { flavor_text_entries: textEntries } = pokeMove;
     const descMessage = textEntries[2].flavor_text;
-    this.moveDescToast(descMessage);
+    this.callDescriptionToast(descMessage);
   }
 
-  public async moveDescToast(descMessage: string) {
+  public async getPokemonAbility(
+    pokemonAbility: PokemonAbility
+  ): Promise<void> {
+    const { ability } = pokemonAbility;
+    const pokeAbility = await this.http.get<Ability>(ability.url).toPromise();
+    const { flavor_text_entries: textEntries } = pokeAbility;
+    const descMessage = textEntries[2].flavor_text;
+    this.callDescriptionToast(descMessage);
+  }
+
+  public async callDescriptionToast(descMessage: string): Promise<void> {
     const toast = await this.toastController.create({
       message: descMessage,
       duration: 2500,
