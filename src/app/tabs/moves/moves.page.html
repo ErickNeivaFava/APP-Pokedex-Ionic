@@ -16,9 +16,11 @@
     <ion-item-sliding>
       <ion-item>
         <ion-col size="5">
-          <span>{{move.name | titlecase }}</span>
-          <br>
-          <span *ngIf="move.id">#{{move.id}}</span>
+          <ion-text class="move-name">
+            <span>{{move.name | titlecase }}</span>
+            <br>
+            <span *ngIf="move.id">#{{move.id}}</span>
+          </ion-text>
         </ion-col>
 
         <ion-col size="4">
@@ -39,7 +41,7 @@
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option color="danger">
+        <ion-item-option (click)="showMoveDesc(move)" color="danger">
           <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
         </ion-item-option>
       </ion-item-options>

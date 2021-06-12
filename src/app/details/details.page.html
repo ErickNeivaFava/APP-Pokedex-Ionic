@@ -131,7 +131,7 @@
     <ion-list *ngFor="let currentMove of currentPokemon.moves">
       <ion-item>
         <span>{{currentMove.move.name | titlecase}}</span>
-        <ion-icon slot="end" name="information-circle-outline"></ion-icon>
+        <ion-icon (click)="showPokeMoveDesc(currentMove)" slot="end" name="information-circle-outline"></ion-icon>
       </ion-item>
     </ion-list>
 

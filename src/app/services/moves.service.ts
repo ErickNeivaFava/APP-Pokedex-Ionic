@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { Move } from '../types/move.type';
+import { PokemonMove } from '../types/pokemon.type';
 
 import { PokedexService } from './pokedex.service';
 
@@ -28,8 +30,30 @@ export class MovesService {
     this.fillMovesList(response.results);
   }
 
+  public async getPokemonMove(pokemonMove: PokemonMove) {
+    const { move } = pokemonMove;
+    const pokeMove = await this.http.get<Move>(move.url).toPromise();
+    this.callMoveToast(pokeMove);
+  }
+
+  public callMoveToast(move: Move) {
+    const { flavor_text_entries: textEntries } = move;
+    const descMessage = textEntries[2].flavor_text;
+    this.moveDescToast(descMessage);
+  }
+
+  public async moveDescToast(descMessage: string) {
+    const toast = await this.toastController.create({
+      message: descMessage,
+      duration: 2500,
+      color: 'light',
+    });
+    await toast.present();
+  }
+
   constructor(
     private http: HttpClient,
-    private pokedexService: PokedexService
-  ) { }
+    private pokedexService: PokedexService,
+    private toastController: ToastController
+  ) {}
 }

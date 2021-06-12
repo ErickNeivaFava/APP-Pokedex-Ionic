@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FilterService } from 'src/app/services/filter.service';
 import { MovesService } from 'src/app/services/moves.service';
 import { Move } from 'src/app/types/move.type';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-moves',
@@ -9,7 +10,6 @@ import { Move } from 'src/app/types/move.type';
   styleUrls: ['./moves.page.scss'],
 })
 export class MovesPage implements OnInit {
-
   public currentFilter: string;
   public allMoves: Move[];
   public filteredMoves: Move[];
@@ -20,8 +20,9 @@ export class MovesPage implements OnInit {
 
   constructor(
     private movesService: MovesService,
-    private filterService: FilterService
-  ) { }
+    private filterService: FilterService,
+    private toastController: ToastController
+  ) {}
 
   public async onLoad(): Promise<void> {
     await this.movesService.getMovesList();
@@ -36,4 +37,7 @@ export class MovesPage implements OnInit {
     );
   }
 
+  public showMoveDesc(move: Move): void {
+    this.movesService.callMoveToast(move);
+  }
 }
