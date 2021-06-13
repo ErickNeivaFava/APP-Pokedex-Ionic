@@ -85,7 +85,7 @@
       </ion-col>
 
       <ion-col size="auto">
-        <ion-icon name="caret-down-outline"></ion-icon>
+        <ion-icon name="stats-chart"></ion-icon>
       </ion-col>
     </ion-row>
 
@@ -106,7 +106,7 @@
       </ion-col>
 
       <ion-col size="auto">
-        <ion-icon name="caret-down-outline"></ion-icon>
+        <ion-icon name="flame"></ion-icon>
       </ion-col>
     </ion-row>
 
@@ -123,7 +123,7 @@
       </ion-col>
 
       <ion-col size="auto">
-        <ion-icon name="caret-down-outline"></ion-icon>
+        <ion-icon name="flash"></ion-icon>
       </ion-col>
     </ion-row>
 
@@ -140,7 +140,7 @@
       </ion-col>
 
       <ion-col size="auto">
-        <ion-icon name="caret-down-outline"></ion-icon>
+        <ion-icon name="barbell-outline"></ion-icon>
       </ion-col>
     </ion-row>
 
@@ -183,14 +183,14 @@
       <ion-title> {{nameOfUser}} Favorite Pokémon </ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content color="light" class="ion-padding">  
+  <ion-content color="light" class="ion-padding">
 
     <ion-list *ngFor="let favoritePokemon of allFavoritePokemon">
-      <ion-item [routerLink]="['/details' , favoritePokemon.id]" >
+      <ion-item [routerLink]="['/details' , favoritePokemon.id]">
         <ion-thumbnail slot="start">
           <img [src]="favoritePokemon.sprites.front_default" />
         </ion-thumbnail>
         <span>{{ favoritePokemon.name | titlecase}}</span>
       </ion-item>
-    </ion-list> 
+    </ion-list>
   </ion-content>

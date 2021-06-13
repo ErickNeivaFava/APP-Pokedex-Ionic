@@ -20,9 +20,17 @@ ion-card {
   ion-badge {
     width: 60px;
     font-size: 10px;
-    
+
     &:nth-child(2) {
       margin-left: 10px;
     }
   }
+}
+
+ion-col {
+  padding-top: 20px;
+}
+
+h6 {
+  margin-top: 10px;
 }

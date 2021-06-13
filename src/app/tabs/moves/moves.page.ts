@@ -1,9 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonContent } from '@ionic/angular';
 import { FilterService } from 'src/app/services/filter.service';
 import { MovesService } from 'src/app/services/moves.service';
 import { Move } from 'src/app/types/move.type';
-import { ToastController } from '@ionic/angular';
-import { PokedexService } from 'src/app/services/pokedex.service';
 
 @Component({
   selector: 'app-moves',
@@ -11,6 +10,8 @@ import { PokedexService } from 'src/app/services/pokedex.service';
   styleUrls: ['./moves.page.scss'],
 })
 export class MovesPage implements OnInit {
+  @ViewChild(IonContent, { static: true })
+  public content: IonContent;
   public currentFilter: string;
   public allMoves: Move[];
   public filteredMoves: Move[];
@@ -45,5 +46,9 @@ export class MovesPage implements OnInit {
 
   public loadMoreMoves(event: any): void {
     this.movesService.loadMoves(event);
+  }
+
+  public scrollToTop(): void {
+    this.content.scrollToTop(2000);
   }
 }

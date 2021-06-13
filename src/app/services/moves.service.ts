@@ -62,6 +62,12 @@ export class MovesService {
       message: descMessage,
       duration: 2500,
       color: 'light',
+      buttons: [
+        {
+          text: 'close',
+          role: 'cancel',
+        },
+      ],
     });
     await toast.present();
   }

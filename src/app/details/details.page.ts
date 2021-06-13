@@ -19,7 +19,7 @@ export class DetailsPage implements OnInit {
   public allFavoritePokemon: Pokemon[];
   public isFavorite: boolean;
   public currentPokemon: Pokemon;
-  public nameOfUser: string = this.loginService.nameOfUser;
+  public nameOfUser: string;
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
@@ -40,6 +40,7 @@ export class DetailsPage implements OnInit {
     this.allFavoritePokemon = this.favoriteService.allFavoritePokemon;
     await this.checkFavorite();
     this.getPokeEvoChain(this.id);
+    this.nameOfUser = this.loginService.nameOfUser;
   }
 
   public favPokemon(): void {
