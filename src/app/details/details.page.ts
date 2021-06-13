@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FavoriteService } from '../services/favorite.service';
+import { LoginService } from '../services/login.service';
 import { MovesService } from '../services/moves.service';
 import { PokedexService } from '../services/pokedex.service';
 import { EvoChain } from '../types/evoChain.type';
@@ -18,6 +19,7 @@ export class DetailsPage implements OnInit {
   public allFavoritePokemon: Pokemon[];
   public isFavorite: boolean;
   public currentPokemon: Pokemon;
+  public nameOfUser: string = this.loginService.nameOfUser;
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
@@ -29,6 +31,7 @@ export class DetailsPage implements OnInit {
     private favoriteService: FavoriteService,
     private pokedexService: PokedexService,
     private movesService: MovesService,
+    private loginService: LoginService,
     private http: HttpClient
   ) {}
 

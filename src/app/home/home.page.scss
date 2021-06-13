@@ -1,6 +1,6 @@
 ion-content {
-  --background: url(https://i.pinimg.com/originals/65/bb/6b/65bb6b19742569e7e148c8637090bdf8.jpg) no-repeat center
-    center fixed;
+  --background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.4) 50%),
+    url(https://i.pinimg.com/originals/65/bb/6b/65bb6b19742569e7e148c8637090bdf8.jpg) no-repeat center center fixed;
 
   h1 {
     text-shadow: 2px 2px #000000;
@@ -17,30 +17,27 @@ ion-content {
   }
 
   ion-label {
+    font-size: 14px;
     font-style: italic;
     color: white;
   }
 
   a {
-    text-shadow: 2px 2px #000000;
     color: white;
     text-decoration: none;
 
     &:hover {
+      border-bottom: 2px solid red;
       color: red;
     }
   }
 
   p {
+    font-size: 14px;
     color: white;
-    text-shadow: 2px 2px #000000;
   }
 
   .ac {
     text-align: center;
-  }
-
-  ion-card-content {
-    color: black;
   }
 }

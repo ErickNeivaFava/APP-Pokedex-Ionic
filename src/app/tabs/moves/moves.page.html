@@ -11,41 +11,44 @@
   <ion-searchbar color="dark" style placeholder="Filter Moves" [(ngModel)]="currentFilter" (ionChange)="updateFilter()">
   </ion-searchbar>
   <br>
-  <ion-list *ngFor="let move of filteredMoves">
-    <ion-item-sliding>
-      <ion-item>
-        <ion-col size="5">
-          <ion-text class="move-name">
-            <span>{{move.name | titlecase }}</span>
+
+  <section>
+    <ion-list *ngFor="let move of filteredMoves">
+      <ion-item-sliding>
+        <ion-item>
+          <ion-col size="5">
+            <ion-text class="move-name">
+              <span>{{move.name | titlecase }}</span>
+              <br>
+              <span *ngIf="move.id">#{{move.id}}</span>
+            </ion-text>
+          </ion-col>
+
+          <ion-col size="4">
+            <ion-text class="move-pa">
+              <span *ngIf="move.power">Power: {{move.power}}</span>
+              <span *ngIf="!move.power">Power: ?</span>
+              <br>
+              <span *ngIf="move.accuracy">Accuracy: {{move.accuracy}}</span>
+              <span *ngIf="!move.accuracy">Accuracy: ?</span>
+            </ion-text>
+          </ion-col>
+
+          <ion-col class="tae" size="3">
+            <ion-badge color="danger">{{move.type.name}}</ion-badge>
             <br>
-            <span *ngIf="move.id">#{{move.id}}</span>
-          </ion-text>
-        </ion-col>
+            <ion-badge color="danger">{{move.damage_class.name}}</ion-badge>
+          </ion-col>
+        </ion-item>
 
-        <ion-col size="4">
-          <ion-text class="move-pa">
-            <span *ngIf="move.power">Power: {{move.power}}</span>
-            <span *ngIf="!move.power">Power: ?</span>
-            <br>
-            <span *ngIf="move.accuracy">Accuracy: {{move.accuracy}}</span>
-            <span *ngIf="!move.accuracy">Accuracy: ?</span>
-          </ion-text>
-        </ion-col>
-
-        <ion-col class="tae" size="3">
-          <ion-badge color="danger">{{move.type.name}}</ion-badge>
-          <br>
-          <ion-badge color="danger">{{move.damage_class.name}}</ion-badge>
-        </ion-col>
-      </ion-item>
-
-      <ion-item-options side="end">
-        <ion-item-option (click)="showMoveDesc(move)" color="danger">
-          <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
-        </ion-item-option>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
+        <ion-item-options side="end">
+          <ion-item-option (click)="showMoveDesc(move)" color="danger">
+            <ion-icon slot="icon-only" name="information-circle-outline"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-item-sliding>
+    </ion-list>
+  </section>
 
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreMoves($event)">
     <ion-infinite-scroll-content loadingSpinner="dots" loadingText="Loading more moves...">

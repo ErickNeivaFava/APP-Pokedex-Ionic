@@ -19,13 +19,12 @@
   <ion-row *ngIf="!currentPokemon" class="ion-text-center">
     <ion-col>
       <ion-text>
-        <span>Carregando dados do Pokémon...</span>
+        <span>Loading Pokémon data...</span>
       </ion-text>
     </ion-col>
   </ion-row>
 
-  <div *ngIf="currentPokemon">
-
+  <section *ngIf="currentPokemon">
     <ion-card class="ion-no-margin">
       <ion-card-header class="ion-no-padding">
         <ion-slides>
@@ -175,22 +174,23 @@
         </ion-col>
       </ion-row>
     </ion-card>
-  </div>
+  </section>
 </ion-content>
 
 <ion-menu side="end" menuId="menuId" contentId="main">
   <ion-header>
     <ion-toolbar color="danger">
-      <ion-title> User Favorite Pokémon</ion-title>
+      <ion-title> {{nameOfUser}} Favorite Pokémon </ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content color="light" class="ion-padding">
-    <ion-list>
-      <ion-item [routerLink]="['/details' , favoritePokemon.id]" *ngFor="let favoritePokemon of allFavoritePokemon">
+  <ion-content color="light" class="ion-padding">  
+
+    <ion-list *ngFor="let favoritePokemon of allFavoritePokemon">
+      <ion-item [routerLink]="['/details' , favoritePokemon.id]" >
         <ion-thumbnail slot="start">
           <img [src]="favoritePokemon.sprites.front_default" />
         </ion-thumbnail>
         <span>{{ favoritePokemon.name | titlecase}}</span>
       </ion-item>
-    </ion-list>
+    </ion-list> 
   </ion-content>

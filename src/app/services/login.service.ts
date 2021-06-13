@@ -4,12 +4,14 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class LoginService {
+  public nameOfUser: string;
 
   public checkUserData(userName: string, userPassword: string): void {
-    if (userName === undefined || userPassword === undefined) {
+    if (userName === '' || userPassword === '') {
       console.log(`Invalid username or password `);
     } else {
-      console.log(`Username: ${userName}   Password: ${userPassword}`);
+      this.nameOfUser =
+        userName.indexOf('s') > -1 ? `${userName}'` : `${userName}'s`;
     }
   }
 

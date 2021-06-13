@@ -7,8 +7,8 @@ import { LoginService } from '../services/login.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  public userName: string = '';
-  public userPassword: string = '';
+  public userName = '';
+  public userPassword = '';
   public rememberMe: boolean;
 
   constructor(private loginService: LoginService) {}
