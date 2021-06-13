@@ -163,28 +163,85 @@
       </ion-col>
     </ion-row>
 
-    <ion-card class="ion-no-margin">
-      <ion-row>
-        <ion-col>
-          <ion-img [src]="currentPokemon.sprites.front_default"></ion-img>
-        </ion-col>
-        <ion-col>
-        </ion-col>
-        <ion-col>
-        </ion-col>
-      </ion-row>
+    <ion-card class="ion-no-margin" *ngIf="evoChain">
+      <div *ngIf="!evoChain.chain.evolves_to[0]">
+        <ion-row>
+          <ion-col></ion-col>
+          <ion-col class="ion-text-center">
+            <ion-img [src]="getImgUrl(evoChain.chain.species.url)"
+              [routerLink]="['/details' , getPokeId(evoChain.chain.species.url)]"></ion-img>
+            {{evoChain.chain.species.name | titlecase}}
+          </ion-col>
+          <ion-col></ion-col>
+        </ion-row>
+      </div>
+
+      <div *ngIf="evoChain.chain.evolves_to[0]">
+
+        <ion-row *ngFor="let chain of evoChain.chain.evolves_to">
+          <ion-col class="ion-text-center">
+            <ion-img [src]="getImgUrl(evoChain.chain.species.url)"
+              [routerLink]="['/details' , getPokeId(evoChain.chain.species.url)]"></ion-img>
+            {{evoChain.chain.species.name | titlecase}}
+          </ion-col>
+
+          <ion-col class="ion-text-center">
+            <br><br>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+            <br>
+            {{chain.evolution_details[0].trigger.name | titlecase}}
+            <br>
+            <div *ngIf="chain.evolution_details[0].item">({{chain.evolution_details[0].item.name | titlecase}})</div>
+          </ion-col>
+
+          <ion-col class="ion-text-center">
+            <ion-img [src]="getImgUrl(chain.species.url)" [routerLink]="['/details' , getPokeId(chain.species.url)]">
+            </ion-img>
+            {{chain.species.name | titlecase}}
+          </ion-col>
+
+        </ion-row>
+
+        <ion-row *ngFor="let chain2 of evoChain.chain.evolves_to[0].evolves_to">
+
+          <ion-col class="ion-text-center">
+            <ion-img [src]="getImgUrl(evoChain.chain.evolves_to[0].species.url)"
+              [routerLink]="['/details' , getPokeId(evoChain.chain.evolves_to[0].species.url)]"></ion-img>
+            {{evoChain.chain.evolves_to[0].species.name | titlecase}}
+          </ion-col>
+
+          <ion-col class="ion-text-center">
+            <br><br>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+            <br>
+            {{chain2.evolution_details[0].trigger.name | titlecase}}
+          </ion-col>
+
+          <ion-col class="ion-text-center">
+            <ion-img [src]="getImgUrl(chain2.species.url)" [routerLink]="['/details' , getPokeId(chain2.species.url)]">
+            </ion-img>
+            {{chain2.species.name | titlecase}}
+          </ion-col>
+
+        </ion-row>
+
+      </div>
+
     </ion-card>
+
   </section>
+
 </ion-content>
 
 <ion-menu side="end" menuId="menuId" contentId="main">
+
   <ion-header>
     <ion-toolbar color="danger">
       <ion-title> {{nameOfUser}} Favorite Pokémon </ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content color="light" class="ion-padding">
 
+  <ion-content color="light" class="ion-padding">
     <ion-list *ngFor="let favoritePokemon of allFavoritePokemon">
       <ion-item [routerLink]="['/details' , favoritePokemon.id]">
         <ion-thumbnail slot="start">
@@ -194,3 +251,5 @@
       </ion-item>
     </ion-list>
   </ion-content>
+
+</ion-menu>

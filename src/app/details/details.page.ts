@@ -1,13 +1,12 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { FavoriteService } from '../services/favorite.service';
 import { LoginService } from '../services/login.service';
 import { MovesService } from '../services/moves.service';
 import { PokedexService } from '../services/pokedex.service';
+import { PokemonService } from '../services/pokemon.service';
 import { EvoChain } from '../types/evoChain.type';
 import { PokemonMove, Pokemon, PokemonAbility } from '../types/pokemon.type';
-import { PokeSpecies } from '../types/pokeSpecies.type';
 
 @Component({
   selector: 'app-details',
@@ -20,6 +19,7 @@ export class DetailsPage implements OnInit {
   public isFavorite: boolean;
   public currentPokemon: Pokemon;
   public nameOfUser: string;
+  public evoChain: EvoChain;
 
   ngOnInit() {
     this.id = +this.route.snapshot.paramMap.get('id');
@@ -27,19 +27,19 @@ export class DetailsPage implements OnInit {
   }
 
   constructor(
+    private pokemonService: PokemonService,
     private route: ActivatedRoute,
     private favoriteService: FavoriteService,
     private pokedexService: PokedexService,
     private movesService: MovesService,
-    private loginService: LoginService,
-    private http: HttpClient
-  ) {}
+    private loginService: LoginService
+  ) { }
 
   public async onLoad(): Promise<void> {
     await this.favoriteService.loadFromStorage();
     this.allFavoritePokemon = this.favoriteService.allFavoritePokemon;
     await this.checkFavorite();
-    this.getPokeEvoChain(this.id);
+    await this.getPokeEvoChain(this.id);
     this.nameOfUser = this.loginService.nameOfUser;
   }
 
@@ -66,53 +66,17 @@ export class DetailsPage implements OnInit {
   public async getPoke(id: number): Promise<void> {
     const response = await this.pokedexService.P.getPokemonByName(id);
     this.currentPokemon = response;
-    // console.log(response.species);
   }
 
   public async getPokeEvoChain(id: number): Promise<void> {
-    const response = await this.pokedexService.P.getPokemonByName(id);
+    this.evoChain = await this.pokemonService.getEvoChain(id);
+  }
 
-    let pokeSpecies = await this.http
-      .get<PokeSpecies>(response.species.url)
-      .toPromise();
+  public getImgUrl(url: string): string {
+    return this.pokemonService.getImg(url);
+  }
 
-    let evoChain = await this.http
-      .get<EvoChain>(pokeSpecies.evolution_chain.url)
-      .toPromise();
-
-    console.log(evoChain); // objeto da chain
-
-    console.log(
-      evoChain.chain.species.name +
-        ' Link para requisição: ' +
-        evoChain.chain.species.url
-    ); // primeiro
-
-    evoChain.chain.evolves_to.forEach(async (element) => {
-      console.log(
-        element.species.name +
-          ' => ' +
-          element.evolution_details[0].trigger.name +
-          '(' +
-          element.evolution_details[0].item +
-          ')' +
-          ' Link para requisição: ' +
-          element.species.url
-      ); // evolução da primeira
-      element.evolves_to.forEach((element2) => {
-        console.log(
-          element2.species.name +
-            ' => ' +
-            element2.evolution_details[0].trigger.name +
-            '(' +
-            element2.evolution_details[0].item +
-            ')' +
-            ' Link para requisição: ' +
-            element2.species.url
-        ); // evolução da segunda
-      });
-    });
-
-    console.log(evoChain.chain.evolves_to.length); // tamanho da chain
+  public getPokeId(url: string): string {
+    return this.pokemonService.getId(url);
   }
 }
