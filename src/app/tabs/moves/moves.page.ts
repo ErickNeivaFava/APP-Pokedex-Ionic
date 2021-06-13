@@ -3,6 +3,7 @@ import { FilterService } from 'src/app/services/filter.service';
 import { MovesService } from 'src/app/services/moves.service';
 import { Move } from 'src/app/types/move.type';
 import { ToastController } from '@ionic/angular';
+import { PokedexService } from 'src/app/services/pokedex.service';
 
 @Component({
   selector: 'app-moves',
@@ -20,8 +21,7 @@ export class MovesPage implements OnInit {
 
   constructor(
     private movesService: MovesService,
-    private filterService: FilterService,
-    private toastController: ToastController
+    private filterService: FilterService
   ) {}
 
   public async onLoad(): Promise<void> {
@@ -41,5 +41,9 @@ export class MovesPage implements OnInit {
     const { flavor_text_entries: textEntries } = move;
     const descMessage = textEntries[2].flavor_text;
     this.movesService.callDescriptionToast(descMessage);
+  }
+
+  public loadMoreMoves(event: any): void {
+    this.movesService.loadMoves(event);
   }
 }

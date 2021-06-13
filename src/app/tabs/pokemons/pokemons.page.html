@@ -8,9 +8,7 @@
 </ion-header>
 
 <ion-content color="light" class="ion-padding">
-
   <ion-searchbar color="dark" style placeholder="Filter Pokémons" [(ngModel)]="currentFilter" (ionChange)="updateFilter()"></ion-searchbar>
-
   <ion-row>
     <ion-col *ngFor="let poke of filteredPokes" size="6" [routerLink]="['/details' , poke.id]">
       <ion-card class="ion-activatable ripple-parent">
@@ -19,10 +17,13 @@
           <ion-img [src]="poke.sprites.front_default"></ion-img>
           <ion-card-title>{{poke.name | titlecase }}</ion-card-title>
         </ion-card-header>
-        
         <ion-ripple-effect></ion-ripple-effect>
       </ion-card>
     </ion-col>
   </ion-row>
 
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMorePokemons($event)">
+    <ion-infinite-scroll-content loadingSpinner="dots" loadingText="Loading more pokémons...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

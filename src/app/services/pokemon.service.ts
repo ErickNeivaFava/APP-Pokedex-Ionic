@@ -21,12 +21,22 @@ export class PokemonService {
   }
 
   public async getPokemonsList(): Promise<void> {
-    const response = await this.pokedexService.P.getPokemonsList(this.pokedexService.interval)
+    const response = await this.pokedexService.P.getPokemonsList(
+      this.pokedexService.pokemonsInterval
+    );
     this.fillPokemonList(response.results);
+  }
+
+  public loadPokemon(event: any): void {
+    this.pokedexService.pokemonsInterval.limit += 20;
+    this.getPokemonsList();
+    setTimeout(() => {
+      event.target.complete();
+    }, 500);
   }
 
   constructor(
     private http: HttpClient,
     private pokedexService: PokedexService
-  ) { }
+  ) {}
 }

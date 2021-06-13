@@ -31,3 +31,9 @@
       </ion-card>
     </ion-col>
   </ion-row>
+
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadMoreItems($event)">
+    <ion-infinite-scroll-content loadingSpinner="dots" loadingText="Loading more items...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

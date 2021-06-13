@@ -22,9 +22,17 @@ export class ItemsService {
 
   public async getItemsList(): Promise<void> {
     const response = await this.pokedexService.P.getItemsList(
-      this.pokedexService.interval
+      this.pokedexService.itemsInterval
     );
     this.fillItemsList(response.results);
+  }
+
+  public loadItems(event: any): void {
+    this.pokedexService.itemsInterval.limit += 20;
+    this.getItemsList();
+    setTimeout(() => {
+      event.target.complete();
+    }, 500);
   }
 
   constructor(

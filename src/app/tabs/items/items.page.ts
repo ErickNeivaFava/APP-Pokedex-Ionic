@@ -8,23 +8,21 @@ import { Item } from 'src/app/types/item.type';
   templateUrl: './items.page.html',
   styleUrls: ['./items.page.scss'],
 })
-export class ItemsPage implements OnInit{
-
+export class ItemsPage implements OnInit {
   public currentFilter: string;
   public allItems: Item[];
   public filteredItems: Item[];
 
-  ngOnInit(){
+  ngOnInit() {
     this.onLoad();
   }
 
   constructor(
     private itemsService: ItemsService,
     private filterService: FilterService
-  ) {   
-  }
+  ) {}
 
-  public async onLoad(): Promise<void> { 
+  public async onLoad(): Promise<void> {
     await this.itemsService.getItemsList();
     this.allItems = this.itemsService.allItems;
     this.filteredItems = this.allItems;
@@ -37,4 +35,7 @@ export class ItemsPage implements OnInit{
     );
   }
 
+  public loadMoreItems(event: any): void {
+    this.itemsService.loadItems(event);
+  }
 }

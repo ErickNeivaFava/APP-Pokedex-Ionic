@@ -26,9 +26,17 @@ export class MovesService {
 
   public async getMovesList(): Promise<void> {
     const response = await this.pokedexService.P.getMovesList(
-      this.pokedexService.interval
+      this.pokedexService.movesInterval
     );
     this.fillMovesList(response.results);
+  }
+
+  public loadMoves(event: any): void {
+    this.pokedexService.movesInterval.limit += 20;
+    this.getMovesList();
+    setTimeout(() => {
+      event.target.complete();
+    }, 500);
   }
 
   public async getPokemonMove(pokemonMove: PokemonMove): Promise<void> {
