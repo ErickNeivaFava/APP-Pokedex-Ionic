@@ -16,7 +16,7 @@ export class LoginService {
   }
 
   public showCheckBoxState(checkboxState: boolean): void {
-    //console.log(checkboxState);
+    console.log(checkboxState);
   }
 
   constructor() {}
