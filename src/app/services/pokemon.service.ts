@@ -31,11 +31,15 @@ export class PokemonService {
   }
 
   public loadPokemon(event: any): void {
-    this.pokedexService.pokemonsInterval.limit += 20;
-    this.getPokemonsList();
-    setTimeout(() => {
+    if (this.pokedexService.pokemonsInterval.limit < 250) {
+      this.pokedexService.pokemonsInterval.limit += 40;
+      this.getPokemonsList();
+      setTimeout(() => {
+        event.target.complete();
+      }, 500);
+    } else {
       event.target.complete();
-    }, 500);
+    }
   }
 
   public getImg(url: string): string {
@@ -64,5 +68,5 @@ export class PokemonService {
   constructor(
     private http: HttpClient,
     private pokedexService: PokedexService
-  ) { }
+  ) {}
 }

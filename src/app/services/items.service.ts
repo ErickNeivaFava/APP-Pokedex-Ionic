@@ -28,11 +28,15 @@ export class ItemsService {
   }
 
   public loadItems(event: any): void {
-    this.pokedexService.itemsInterval.limit += 20;
-    this.getItemsList();
-    setTimeout(() => {
+    if (this.pokedexService.itemsInterval.limit < 250) {
+      this.pokedexService.itemsInterval.limit += 40;
+      this.getItemsList();
+      setTimeout(() => {
+        event.target.complete();
+      }, 500);
+    } else {
       event.target.complete();
-    }, 500);
+    }
   }
 
   constructor(
